@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/06/Python之八大排序算法实现/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/06/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BlueMrD">
@@ -338,370 +338,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/06/Python之八大排序算法实现/" itemprop="url">
-                  Python之八大排序算法实现
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-06 15:34:18 / 修改时间：15:39:22" itemprop="dateCreated datePublished" datetime="2018-08-06T15:34:18+08:00">2018-08-06</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>排序算法</strong></p>
-<p><strong><img src="https://img-blog.csdn.net/20180319191020581?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L01yX2JsdWVE/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></strong></p>
-<h2><span id="一快速排序"><strong>一.快速排序</strong></span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 递归有返回</span><br><span class="line"></span><br><span class="line">def Qsort(L):</span><br><span class="line">    if len(L) &lt;= 1: return L</span><br><span class="line">    	return Qsort([low for low in L[1:] if low &lt; L[0]]) + L[0:1]+ \</span><br><span class="line"></span><br><span class="line">    Qsort([high for high in L[1:] if high &gt;= L[0]])</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 非递归无返回</span><br><span class="line"></span><br><span class="line">def quick_sort(L, low, high):</span><br><span class="line">    key = L[low]</span><br><span class="line">    while low &lt; high:</span><br><span class="line">        while low &lt; high and L[high] &gt;= key:</span><br><span class="line">            high -= 1</span><br><span class="line">        L[low] = L[high]</span><br><span class="line">        while low &lt; high and L[low] &lt;= key:</span><br><span class="line">            low += 1</span><br><span class="line">        L[high] = L[low]</span><br><span class="line">    L[low] = key</span><br><span class="line">	return low</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def Qsort(L, low, high):</span><br><span class="line">    if low &lt; high:</span><br><span class="line">        pivotloc = qucksort(L, low, high)</span><br><span class="line">        Qsort(L, low, pivotloc-1)</span><br><span class="line">        Qsort(L, pivotloc+1, high)</span><br></pre></td></tr></table></figure>
-<h2><span id="二冒泡排序"><strong>二.冒泡排序</strong></span></h2><p><strong>概念：重复走访待排数列，一次比较两个元素，若顺序错误就互相交换，直到走访到末尾，排序完成。（每次走访数列都会将数列中较大的数通过交换’浮’到数列的尾端，故名冒泡排序）。</strong></p>
-<p><strong>思路：</strong></p>
-<p><strong>1. 遍历列表，对其中每一对相邻的两个元素进行比较，若第一个比第二个大就进行交换。</strong></p>
-<p><strong>2.通过第一步将最大的元素交换到列表末尾，然后排除该元素，对前面的所有元素进行第1步操作。</strong></p>
-<p><strong>3.重复进行前面两步操作。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 双重for循环</span><br><span class="line"></span><br><span class="line">def bubble_sort(A):</span><br><span class="line">    length = len(A)</span><br><span class="line">    for index in range(length):</span><br><span class="line">        for i in range(1, length-index):</span><br><span class="line">            if A[i-1] &gt; A[i]:</span><br><span class="line">                A[i-1], A[i] = A[i], A[i-1]</span><br><span class="line">    return A</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># for循环嵌套while循环</span><br><span class="line"></span><br><span class="line">def bubble_sort(A):</span><br><span class="line">	length = len(A)</span><br><span class="line">    for i in range(length):</span><br><span class="line">        j = 1</span><br><span class="line">        while j &lt; length-i:</span><br><span class="line">            if A[j-1] &gt; A[j]:</span><br><span class="line">                A[j-1], A[j] = A[j], A[j-1]</span><br><span class="line"></span><br><span class="line">    return A</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 反过来排序</span><br><span class="line"></span><br><span class="line">def bubble_sort(A):</span><br><span class="line">    length = len(A)</span><br><span class="line">    for i in range(length):</span><br><span class="line">        j = length-1</span><br><span class="line">        while j &gt;= i:</span><br><span class="line">            if A[j] &lt; A[j-1]:</span><br><span class="line">                A[j], A[j-1] = A[j-1], A[j]</span><br><span class="line">            j -= 1</span><br><span class="line">    return A</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 优化算法</span><br><span class="line"></span><br><span class="line">def bubble_sort(A):</span><br><span class="line">    length = len(A)</span><br><span class="line">    for index in range(length):</span><br><span class="line">        flag = True</span><br><span class="line">        for i in range(1, length-index):</span><br><span class="line">            if A[i-1] &gt; A[i]:</span><br><span class="line">                A[i-1], A[i] = A[i], A[i-1]</span><br><span class="line">                flag = False</span><br><span class="line">    return A</span><br></pre></td></tr></table></figure>
-<h2><span id="三选择排序"><strong>三.选择排序</strong></span></h2><p><strong>概念：从待排数列中选出最大（或最小）的一个元素，存放在数列的起始位置，直至数列排完。</strong></p>
-<p><strong>思路：</strong></p>
-<p><strong>1.将列表中第一个元素与其后所有元素进行比较，碰到较小的便与之交换。</strong></p>
-<p><strong>2.排除第1步中选出的元素，对剩下的元素进行第1步操作。</strong></p>
-<p><strong>3.重复上述操作。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 双重for循环</span><br><span class="line"></span><br><span class="line">def select_sort(A):</span><br><span class="line">    length = len(A)</span><br><span class="line">    for index in range(length):</span><br><span class="line">        for i in range(index+1, length):</span><br><span class="line">            if A[index] &gt; A[i]:</span><br><span class="line">                A[index], A[i] = A[i], A[index]</span><br><span class="line">    return A</span><br></pre></td></tr></table></figure>
-<h2><span id="四插入排序"><strong>四.插入排序</strong></span></h2><p><strong>概念**</strong>：第一个元素必有序，将数组中未排序的元素插入到有序的元素中，从而得到一个新的有序数组。**</p>
-<p><strong>思路：</strong></p>
-<p><strong>第一个元素为有序元素，将后面的元素依次记为待插入元素，与前面的有序元素从后至前比较，然后进行插入。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def insert_sort(A):</span><br><span class="line">    length = len(A)</span><br><span class="line">    for i in range(1, length):</span><br><span class="line">        key = A[i]</span><br><span class="line">        j = i-1</span><br><span class="line">        while j &gt;= 0:</span><br><span class="line">	    	if A[j] &gt; key:</span><br><span class="line">            A[j+1] =  A[j]</span><br><span class="line">            A[j] = key</span><br><span class="line">            j -= 1</span><br><span class="line">    return A</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def insert_sort(A):</span><br><span class="line">    length = len(A)</span><br><span class="line">    for i in range(1, length):</span><br><span class="line">        key = A[i]</span><br><span class="line">        j = i</span><br><span class="line">        while j &gt;= 1 and A[j-1] &gt; key:</span><br><span class="line">        	A[j] =  A[j-1]</span><br><span class="line">            j -= 1</span><br><span class="line">        A[j] = key</span><br><span class="line">    return A</span><br></pre></td></tr></table></figure>
-<h2><span id="五归并排序"><strong>五.归并排序</strong></span></h2><p><strong>概念**</strong>：将两个有序数组归并为一个有序数组。**</p>
-<p><strong>思路</strong></p>
-<p><strong>1.创建一个新数组，将第一个数组的每个元素与第二个数组的每个元素进行比较，将每次比较中较小的元素添加到新数组中，直至第一个数组的所有元素比较完。</strong></p>
-<p><strong>2.若第二个数组的元素未比较完，则将第二个数组剩下的元素添加到新数组中。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def merge_sort(A, B):</span><br><span class="line">    len1 = len(A)</span><br><span class="line">    len2 = len(B)</span><br><span class="line">    C = []</span><br><span class="line">    j = 0</span><br><span class="line">    for i in range(len1):</span><br><span class="line">        while j &lt; len2 and A[i] &gt; B[j]:</span><br><span class="line">            C.append(B[j]) </span><br><span class="line">            j += 1</span><br><span class="line">        C.append(A[i])</span><br><span class="line">    if j &lt; len2:</span><br><span class="line">        C.extend(B[j:]) # C = C + B[j:</span><br><span class="line"></span><br><span class="line">    return C</span><br></pre></td></tr></table></figure>
-<h2><span id=""> </span></h2><h2><span id="六希尔排序">六.希尔排序</span></h2><p>优化版插入排序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 希尔排序</span><br><span class="line"></span><br><span class="line">def shell_sort(A):</span><br><span class="line">    length = len(A)</span><br><span class="line">    gap = length // 2</span><br><span class="line">    while gap &gt; 0:</span><br><span class="line">        for i in range(gap, length):</span><br><span class="line">            temp = A[i]</span><br><span class="line">            j = i</span><br><span class="line">            while j &gt;= gap and A[j-gap] &gt; temp:</span><br><span class="line">                A[j] = A[j-gap]</span><br><span class="line">                j -= gap</span><br><span class="line">            A[j] = temp</span><br><span class="line">        gap //= 2</span><br><span class="line">        print(A)</span><br><span class="line">    return A</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A = [1, 2, 4, 1, 3, 6, 4, 5, 9]</span><br><span class="line"></span><br><span class="line">shell_sort(A)</span><br><span class="line"></span><br><span class="line">[1, 2, 4, 1, 3, 6, 4, 5, 9]      </span><br><span class="line">[1, 1, 3, 2, 4, 5, 4, 6, 9]</span><br><span class="line">[1, 1, 2, 3, 4, 4, 5, 6, 9]</span><br><span class="line">[1, 1, 2, 3, 4, 4, 5, 6, 9]</span><br></pre></td></tr></table></figure>
-<h2><span id="七堆排序"><strong>七.堆排序</strong></span></h2><h2><span id="八计数排序">八.计数排序</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def count_sort(A):</span><br><span class="line">    Max = Min = 0</span><br><span class="line">    for each in A:</span><br><span class="line">        if each &lt; Min:</span><br><span class="line">            Min = each</span><br><span class="line">        if each &gt; Max:</span><br><span class="line">            Max = each</span><br><span class="line">    count = [0] * (Max-Min+1)</span><br><span class="line">    # 将A中元素出现的次数放入count中</span><br><span class="line">    for i in A:</span><br><span class="line">        count[i-Min] += 1</span><br><span class="line">    index = 0</span><br><span class="line">    for j in range(Max-Min+1):</span><br><span class="line">        for k in range(count[j]):</span><br><span class="line">            A[index] = j+Min</span><br><span class="line">            index += 1</span><br><span class="line">    return A</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/05/KNN算法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BlueMrD">
-      <meta itemprop="description" content="This is my blue sea.">
-      <meta itemprop="image" content="/images/Nicolas.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blue's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/05/KNN算法/" itemprop="url">
-                  KNN算法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-05 21:33:32" itemprop="dateCreated datePublished" datetime="2018-08-05T21:33:32+08:00">2018-08-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-06 15:29:31" itemprop="dateModified" datetime="2018-08-06T15:29:31+08:00">2018-08-06</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="具体步骤："><a href="#具体步骤：" class="headerlink" title="具体步骤："></a>具体步骤：</h2><ol>
-<li>计算当前要分类的点与每一个已知分类点的距离。</li>
-<li>对结果进行排序。</li>
-<li>选取距离最近的k个点。</li>
-<li>统计这k个点不同分类出现的频次。</li>
-<li>选取频次最高的分类作为当前要分类的点的分类。</li>
-</ol>
-<p>以sklearn库自带的iris数据集为例。</p>
-<p>获取iris数据集</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">from sklearn  import datasets</span><br><span class="line">import pandas as pd</span><br><span class="line">from collections import Counter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">iris_datas = datasets.load_iris()</span><br><span class="line"></span><br><span class="line">iris = pd.DataFrame(iris_data.data, columns=iris_datas[&apos;feature_names&apos;])</span><br><span class="line"></span><br><span class="line">print(iris.head())</span><br></pre></td></tr></table></figure>
-<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
-<p> <img src="https://img-blog.csdn.net/20180728161121194?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01yX2JsdWVE/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">​</p>
-<p>将种类作为新的一列添加进去</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iris = pd.merge(iris, pd.DataFrame(iris_datas[&apos;target&apos;], columns=[&apos;species&apos;]), left_index=True, right_index=True)</span><br><span class="line">labels = &#123;x: y for x, y in enumerate(iris_datas[&apos;target_names&apos;])&#125;</span><br><span class="line">iris[&apos;species&apos;] = iris[&apos;species&apos;].apply(lambda x: labels[x])</span><br><span class="line"></span><br><span class="line">print(iris.head())</span><br></pre></td></tr></table></figure>
-<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
-<p> <img src="https://img-blog.csdn.net/20180728161303633?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01yX2JsdWVE/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">​</p>
-<p>进行KNN算法测试 </p>
-<p>距离选择的是标准的欧式距离公式</p>
-<p><img src="http://dl2.iteye.com/upload/attachment/0098/4314/bb71ff05-fe7f-3045-bfc7-1bfad452af9f.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/05/KNN算法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/05/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BlueMrD">
-      <meta itemprop="description" content="This is my blue sea.">
-      <meta itemprop="image" content="/images/Nicolas.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blue's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/05/hello-world/" itemprop="url">
+                <a class="post-title-link" href="/2018/08/06/hello-world/" itemprop="url">
                   Hello World
                 </a>
               
@@ -728,7 +365,7 @@
                 
               
 
-              <time title="创建时间：2018-08-05 21:31:13 / 修改时间：21:31:59" itemprop="dateCreated datePublished" datetime="2018-08-05T21:31:13+08:00">2018-08-05</time>
+              <time title="创建时间：2018-08-06 15:58:42 / 修改时间：15:59:39" itemprop="dateCreated datePublished" datetime="2018-08-06T15:58:42+08:00">2018-08-06</time>
             
 
             
@@ -767,18 +404,18 @@
 
       
         
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+          
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2><span id="quick-start">Quick Start</span></h2><h3><span id="create-a-new-post">Create a new post</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;My New Post&quot;</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3><span id="run-server">Run server</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/05/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<h3><span id="generate-static-files">Generate static files</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3><span id="deploy-to-remote-sites">Deploy to remote sites</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+          
         
       
     </div>
@@ -862,40 +499,14 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
 
               
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                    <span class="site-state-item-count">1</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
 
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                    <span class="site-state-item-count">1</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
               
             </nav>
           
