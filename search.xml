@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Hexo搭建博客错误解决]]></title>
     <url>%2F2018%2F08%2F06%2FHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%2F</url>
-    <content type="text"><![CDATA[使用hexo搭建个人博客的过程中碰到了好多的坑，现在一一填上。 hexo的下载安装可参考 https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html github仓库名必须与github用户名一致 使用 hexo s 时本地不显示博客内容，而显示 cannot get/xxx1$ hexo s -p 5000 换个端口即可。 设置语言为中文我最开始按照网站教程在站点配置文件_config.yml下的设置语言为中文 1language: zh-Hans 然而本地网站并没有换成中文。 换成 1language: zh-CN 即可。]]></content>
+    <content type="text"><![CDATA[使用hexo搭建个人博客的过程中碰到了好多的坑，现在一一填上。 hexo的下载安装可参考 https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html github仓库名必须与github用户名一致 使用 hexo s 时本地不显示博客内容，而显示 cannot get/xxx1$ hexo s -p 5000 换个端口即可。 设置语言为中文我最开始按照网站教程在站点配置文件_config.yml下的设置语言为中文 1language: zh-Hans 然而本地网站并没有换成中文。 换成 1language: zh-CN 即可。 配置LeanCloud，将阅读人数替换为热度参考 https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud 然而进入文章会出现这样的错误 “Counter not initialized! See more at console err msg” 解决方法参考 https://leaferx.online/2018/02/11/lc-security/]]></content>
       <tags>
         <tag>Hexo</tag>
       </tags>
