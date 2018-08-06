@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Hexo搭建博客错误解决]]></title>
+    <url>%2F2018%2F08%2F06%2FHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%2F</url>
+    <content type="text"><![CDATA[使用hexo搭建个人博客的过程中碰到了好多的坑，现在一一填上。 hexo的下载安装可参考 https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html github仓库名必须与github用户名一致 使用 hexo s 时本地不显示博客内容，而显示 cannot get/xxx1$ hexo s -p 5000 换个端口即可。 设置语言为中文我最开始按照网站教程在站点配置文件_config.yml下的设置语言为中文 1language: zh-Hans 然而本地网站并没有换成中文。 换成 1language: zh-CN 即可。]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F08%2F06%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot; More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
