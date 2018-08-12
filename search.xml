@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[关于Django2.1]]></title>
-    <url>%2F2018%2F08%2F12%2FDjango2-1%E4%B9%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[关于外键Django2.0版本开始，在类模型中，定义外键和一对一关系字段时需要添加 on_delete 参数，不然会报错：init() missing 1 required positional argument: ‘on_delete’。 后台显示中文应用名、类名与字段名在添加Django应用后，创建超级管理员账号可以登录Django自带的管理后台，比如我添加了一个名为blog的应用，登录后台后显示为 现在我们来将它修改为中文显示 在Django应用目录(即你添加的应用)下打开apps.py文件，在AppNameConfig类里添加两条属性即可，如图： 然后在blog应用目录下的init.py文件里添加一句 1default_app_config = &apos;AppName.apps.AppNameConfig&apos; 例如在我的应用下这一句应为 1default_app_config = &apos;blog.apps.BlogConfig&apos; 在上图中可以看到在博客应用下有三个Model，分别为Categorys，Tag和Posts，现在来改为中文显示。 在定义上面三个Model的models.py文件夹里，修改对应的model类，如下图所示： 后面两个修改方式一样。 在此说一下 verbose_name 与 verbose_name_plural 的区别：以 Categorys 为例，可以看到该Model名后面有个 ‘s’，意为复数，所以如果只添加 verbose_name = ‘分类’， 则在后台显示会为 ‘分类s’。 在models.py中的model类中，通常会创建一些字段，一般会想要这些字段在后台为中文显示，方便识别。 显示为中文方法很简单，在定义该字段时添加 verbose_name 参数即可，例如：]]></content>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Django2.1之搭建个人博客]]></title>
     <url>%2F2018%2F08%2F12%2F%E5%85%B3%E4%BA%8EDjango2.1%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[关于外键Django2.0版本开始，在类模型中，定义外键和一对一关系字段时需要添加 on_delete 参数，不然会报错：init() missing 1 required positional argument: ‘on_delete’。 后台显示中文应用名、类名与字段名在添加Django应用后，创建超级管理员账号可以登录Django自带的管理后台，比如我添加了一个名为blog的应用，登录后台后显示为 现在我们来将它修改为中文显示 在Django应用目录(即你添加的应用)下打开apps.py文件，在AppNameConfig类里添加两条属性即可，如图： 然后在blog应用目录下的init.py文件里添加一句 1default_app_config = &apos;AppName.apps.AppNameConfig&apos; 例如在我的应用下这一句应为 1default_app_config = &apos;blog.apps.BlogConfig&apos; 在上图中可以看到在博客应用下有三个Model，分别为Categorys，Tag和Posts，现在来改为中文显示。 在定义上面三个Model的models.py文件夹里，修改对应的model类，如下图所示： 后面两个修改方式一样。 在此说一下 verbose_name 与 verbose_name_plural 的区别：以 Categorys 为例，可以看到该Model名后面有个 ‘s’，意为复数，所以如果只添加 verbose_name = ‘分类’， 则在后台显示会为 ‘分类s’。 在models.py中的model类中，通常会创建一些字段，一般会想要这些字段在后台为中文显示，方便识别。 显示为中文方法很简单，在定义该字段时添加 verbose_name 参数即可，例如：]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Hexo搭建博客错误解决]]></title>
