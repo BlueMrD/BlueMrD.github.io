@@ -388,7 +388,7 @@
                 
               
 
-              <time title="创建时间：2018-08-12 21:54:59 / 修改时间：22:18:08" itemprop="dateCreated datePublished" datetime="2018-08-12T21:54:59+08:00">2018-08-12</time>
+              <time title="创建时间：2018-08-12 21:54:59 / 修改时间：22:51:53" itemprop="dateCreated datePublished" datetime="2018-08-12T21:54:59+08:00">2018-08-12</time>
             
 
             
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">138</span>
+                <span title="本文字数">788</span>
               
 
               
@@ -459,8 +459,13 @@
           
           关于外键Django2.0版本开始，在类模型中，定义外键和一对一关系字段时需要添加 on_delete 参数，不然会报错：init() missing 1 required positional argument: ‘on_delete’。
 
-后台显示中文应用名、类名与字段名
-          
+后台显示中文应用名、类名与字段名在添加Django应用后，创建超级管理员账号可以登录Django自带的管理后台，比如我添加了一个名为blog的应用，登录后台后显示为
+
+现在我们来将它修改为中文显示
+在Django应用目录(即你添加的应用)下打开apps.py文件，在AppNameConfig类里添加两条属性即可，如图：
+
+然后在blog应用目录下的ini
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/08/12/Django2-1之搭建个人博客/#more" rel="contents">
@@ -753,7 +758,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-09 20:46:26" itemprop="dateModified" datetime="2018-08-09T20:46:26+08:00">2018-08-09</time>
+                <time title="修改时间：2018-08-12 22:58:14" itemprop="dateModified" datetime="2018-08-12T22:58:14+08:00">2018-08-12</time>
               
             
           </span>
@@ -791,7 +796,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">693</span>
+                <span title="本文字数">1.2k</span>
               
 
               
@@ -819,13 +824,9 @@
           
           使用hexo搭建个人博客的过程中碰到了好多的坑，现在一一填上。
 hexo的下载安装可参考 https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html
-github仓库名必须与github用户名一致
-使用 hexo s 时本地不显示博客内容，而显示 cannot get/xxx1$ hexo s -p 5000
-换个端口即可。
-设置语言为中文我最开始按照网站教程在站点配置文件_config.yml下的设置语言为中文
-1language: zh-Hans
-然而本地网站并没有换成中文。
-因为在hexo的新版本中
+Hexo常用命令12345678# 创建文章$ hexo new &apos;xxx&apos;# 创建标签$ hexo new page tag &apos;xxx&apos;# 创建类别$ hexo new page category &apos;xxx&apos;
+在文章中插图片必须配置：
+1 把主页配置文件_config.yml 里的post_ass
           ...
           <!--noindex-->
           <div class="post-button text-center">
