@@ -11,7 +11,7 @@
   <entry>
     <title><![CDATA[搭建Django2.1]]></title>
     <url>%2F2018%2F08%2F12%2F%E6%90%AD%E5%BB%BADjango2-1%2F</url>
-    <content type="text"><![CDATA[创建Django项目打开命令行，选择一个文件夹(我的直接放桌面上)，输入 1django-admin startproject &apos;项目名称&apos; 例： 文件目录列表为 创建并添加Django应用创建应用：命令行进入刚刚的django项目文件夹下，输入 1python mange.py startapp &apos;应用名称&apos; 例： 添加应用：打开mysite/mysite/settings.py文件 这一步相当于将应用注册到django中。 迁移数据库命令行输入 1python mange.py migrate 会在数据库中创建Django自带的数据表。 创建超级用户这一步是为了后面使用Django后台对数据进行操作，必须在迁移数据库之后才能进行。 命令行输入 1python mange.py createsuperuser 邮箱可以不输入，按Enter跳过，但密码并不是不输入，而是输入了也不显示。 运行django命令行输入 1python mange.py runserver 网站中输入 127.0.01:8000 即可看到项目运行成功。 这些你都懂？ 那么请看下面 djano小技巧]]></content>
+    <content type="text"><![CDATA[创建Django项目打开命令行，选择一个文件夹(我的直接放桌面上)，输入 1django-admin startproject &apos;项目名称&apos; 例： 文件目录列表为 创建并添加Django应用创建应用：命令行进入刚刚的django项目文件夹下，输入 1python mange.py startapp &apos;应用名称&apos; 例： 添加应用：打开mysite/mysite/settings.py文件 这一步相当于将应用注册到django中。 迁移数据库命令行输入 1python mange.py migrate 会在数据库中创建Django自带的数据表。 创建超级用户这一步是为了后面使用Django后台对数据进行操作，必须在迁移数据库之后才能进行。 命令行输入 1python mange.py createsuperuser 邮箱可以不输入，按Enter跳过，但密码并不是不输入，而是输入了也不显示。 运行django命令行输入 1python mange.py runserver 网站中输入 127.0.01:8000 即可看到项目运行成功。 Django后台登录创建超级用户后，运行Django项目，进入网址 127.0.0.1:8000/admin 登录成功 1 记得帐号，但是忘记了密码 命令行输入 1python manage.py changepassword &lt;username&gt; username 是你的帐号。 这些你都懂？ 那么请看下面 djano小技巧]]></content>
       <tags>
         <tag>Django</tag>
       </tags>
