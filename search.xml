@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[使用faker大魔王创建user_agent]]></title>
+    <url>%2F2018%2F08%2F15%2F%E4%BD%BF%E7%94%A8faker%E5%A4%A7%E9%AD%94%E7%8E%8B%E5%88%9B%E5%BB%BAuser-agent%2F</url>
+    <content type="text"><![CDATA[在知道有 faker 这个库之后我就想用来写爬虫的用户池了，先在这里记录一下。 123456789101112from faker import Factory, Fakerfrom pprint import pprintfactory = Factory.create() # factory = Facker()print(factory.user_agent())print()UAPOOL = [factory.user_agent for i in range(50)]pprint(UAPOOL)]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Git生成SSH密匙]]></title>
     <url>%2F2018%2F08%2F14%2FGit%E7%94%9F%E6%88%90SSH%E5%AF%86%E5%8C%99%2F</url>
     <content type="text"><![CDATA[因为将hexo部署到github上需要ssh密匙，所以特地去学习了一下如何生成，记录在此，方便下次使用。 配置github账户信息在 Git Bash 下输入命令 1$ git config --global user.email &quot;YourName&quot; 1$ git config --global user.email &quot;YourEmail&quot; 其中的 YourName 与 YourEmail 都是你自己的github帐号与绑定邮箱。 创建SSH若之前没有创建过SSH密匙，则 在 Git Bash 下输入 1$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot; 引号的内容为邮箱地址。 查看SSH密匙如果已经生成了SSH密匙，可通过Git Bash命令进行查看 进入文件夹 1$ cd ~/.ssh 查看密匙 1$ cat id_rsa.pub]]></content>
