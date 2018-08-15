@@ -14,12 +14,31 @@
   
 
 
+
 <html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
 
 
 
@@ -115,19 +134,19 @@
 
 
 
-  <meta name="description" content="创建虚拟环境参考 Python虚拟环境 Scrapy 框架基本命令创建Scrapy项目 进入命令行，输入 1scrapy startproject &apos;项目名&apos; 创建spider蜘蛛 进入刚创建的Scrapy项目目录 12cd &apos;项目名&apos;scrapy genspider &apos;蜘蛛名&apos; 运行Scrapy项目 1scrapy crawl &apos;蜘蛛名&apos; 数据导出为json格式中文乱码问题在配置文件settin">
+  <meta name="description" content="创建虚拟环境参考 Python虚拟环境 Windows安装Scrapy参考 Scrapy安装 Scrapy 框架基本命令创建Scrapy项目 进入命令行，输入 1scrapy startproject &apos;项目名&apos; 创建spider蜘蛛 进入刚创建的Scrapy项目目录 12cd &apos;项目名&apos;scrapy genspider &apos;蜘蛛名&apos; 运行Scrapy项目 1scrapy crawl &apos;蜘蛛名&apos; 数">
 <meta name="keywords" content="Scrapy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从头开始学scrapy">
 <meta property="og:url" content="http://yoursite.com/2018/08/15/从头开始学scrapy/index.html">
 <meta property="og:site_name" content="Blue&#39;s blog">
-<meta property="og:description" content="创建虚拟环境参考 Python虚拟环境 Scrapy 框架基本命令创建Scrapy项目 进入命令行，输入 1scrapy startproject &apos;项目名&apos; 创建spider蜘蛛 进入刚创建的Scrapy项目目录 12cd &apos;项目名&apos;scrapy genspider &apos;蜘蛛名&apos; 运行Scrapy项目 1scrapy crawl &apos;蜘蛛名&apos; 数据导出为json格式中文乱码问题在配置文件settin">
+<meta property="og:description" content="创建虚拟环境参考 Python虚拟环境 Windows安装Scrapy参考 Scrapy安装 Scrapy 框架基本命令创建Scrapy项目 进入命令行，输入 1scrapy startproject &apos;项目名&apos; 创建spider蜘蛛 进入刚创建的Scrapy项目目录 12cd &apos;项目名&apos;scrapy genspider &apos;蜘蛛名&apos; 运行Scrapy项目 1scrapy crawl &apos;蜘蛛名&apos; 数">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/08/15/从头开始学scrapy/01.png">
-<meta property="og:updated_time" content="2018-08-15T08:44:55.364Z">
+<meta property="og:updated_time" content="2018-08-15T09:06:02.571Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从头开始学scrapy">
-<meta name="twitter:description" content="创建虚拟环境参考 Python虚拟环境 Scrapy 框架基本命令创建Scrapy项目 进入命令行，输入 1scrapy startproject &apos;项目名&apos; 创建spider蜘蛛 进入刚创建的Scrapy项目目录 12cd &apos;项目名&apos;scrapy genspider &apos;蜘蛛名&apos; 运行Scrapy项目 1scrapy crawl &apos;蜘蛛名&apos; 数据导出为json格式中文乱码问题在配置文件settin">
+<meta name="twitter:description" content="创建虚拟环境参考 Python虚拟环境 Windows安装Scrapy参考 Scrapy安装 Scrapy 框架基本命令创建Scrapy项目 进入命令行，输入 1scrapy startproject &apos;项目名&apos; 创建spider蜘蛛 进入刚创建的Scrapy项目目录 12cd &apos;项目名&apos;scrapy genspider &apos;蜘蛛名&apos; 运行Scrapy项目 1scrapy crawl &apos;蜘蛛名&apos; 数">
 <meta name="twitter:image" content="http://yoursite.com/2018/08/15/从头开始学scrapy/01.png">
 
 
@@ -395,7 +414,7 @@
                 
               
 
-              <time title="创建时间：2018-08-15 16:22:37 / 修改时间：16:44:55" itemprop="dateCreated datePublished" datetime="2018-08-15T16:22:37+08:00">2018-08-15</time>
+              <time title="创建时间：2018-08-15 16:22:37 / 修改时间：17:06:02" itemprop="dateCreated datePublished" datetime="2018-08-15T16:22:37+08:00">2018-08-15</time>
             
 
             
@@ -456,7 +475,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">241</span>
+                <span title="本文字数">350</span>
               
 
               
@@ -481,6 +500,7 @@
 
       
         <h3><span id="chuang-jian-xu-ni-huan-jing">创建虚拟环境</span><a href="#chuang-jian-xu-ni-huan-jing" class="header-anchor"></a></h3><p>参考 <a href="https://blog.csdn.net/Mr_blueD/article/details/80139324" target="_blank" rel="noopener">Python虚拟环境</a></p>
+<h3><span id="windows-an-zhuang-scrapy">Windows安装Scrapy</span><a href="#windows-an-zhuang-scrapy" class="header-anchor"></a></h3><p>参考 <a href="https://blog.csdn.net/Mr_blueD/article/details/79715252" target="_blank" rel="noopener">Scrapy安装</a></p>
 <h3><span id="scrapy-kuang-jia-ji-ben-ming-ling">Scrapy 框架基本命令</span><a href="#scrapy-kuang-jia-ji-ben-ming-ling" class="header-anchor"></a></h3><p>创建Scrapy项目</p>
 <p>进入命令行，输入</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy startproject <span class="string">'项目名'</span></span><br></pre></td></tr></table></figure>
@@ -489,7 +509,10 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="string">'项目名'</span></span><br><span class="line">scrapy genspider <span class="string">'蜘蛛名'</span></span><br></pre></td></tr></table></figure>
 <p>运行Scrapy项目</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl <span class="string">'蜘蛛名'</span></span><br></pre></td></tr></table></figure>
-<h3><span id="shu-ju-dao-chu-wei-json-ge-shi-zhong-wen-luan-ma-wen-ti">数据导出为json格式中文乱码问题</span><a href="#shu-ju-dao-chu-wei-json-ge-shi-zhong-wen-luan-ma-wen-ti" class="header-anchor"></a></h3><p>在配置文件settings.py中添加</p>
+<h3><span id="shu-ju-dao-chu-wei-json-ge-shi-zhong-wen-luan-ma-wen-ti">数据导出为json格式中文乱码问题</span><a href="#shu-ju-dao-chu-wei-json-ge-shi-zhong-wen-luan-ma-wen-ti" class="header-anchor"></a></h3><p>导出为 json 格式命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl &apos;蜘蛛名&apos; -o &apos;文件名&apos;.json</span><br></pre></td></tr></table></figure>
+<p>导出为 csv格式命令类似</p>
+<p>在配置文件settings.py中添加</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FEED_EXPORT_ENCODING = <span class="string">'utf-8'</span></span><br></pre></td></tr></table></figure>
 <img src="/2018/08/15/从头开始学scrapy/01.png" title="设置中文">
       
@@ -502,6 +525,18 @@
     
 
     
+
+<div>
+  
+    
+<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-heart"></i>感谢阅读-------------</div>
+    
+</div>
+
+  
+</div>
 
     
       <div>
@@ -739,7 +774,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">创建虚拟环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Scrapy 框架基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">数据导出为json格式中文乱码问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">创建虚拟环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Windows安装Scrapy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Scrapy 框架基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">数据导出为json格式中文乱码问题</span></a></li></ol></div>
             
 
           </div>
