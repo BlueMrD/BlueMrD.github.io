@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Mysql数据库]]></title>
+    <url>%2F2018%2F08%2F15%2FMysql%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
+    <content type="text"><![CDATA[启动Mysql5.7进入命令行 1net start mysql57 1mysql -u root -p 输入密码即可。]]></content>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[使用faker大魔王创建user_agent]]></title>
     <url>%2F2018%2F08%2F15%2F%E4%BD%BF%E7%94%A8faker%E5%A4%A7%E9%AD%94%E7%8E%8B%E5%88%9B%E5%BB%BAuser-agent%2F</url>
     <content type="text"><![CDATA[在知道有 faker 这个库之后我就想用来写爬虫的用户池了，先在这里记录一下。 123456789101112from faker import Factory, Fakerfrom pprint import pprintfactory = Factory.create() # factory = Facker()print(factory.user_agent())print()UAPOOL = [factory.user_agent for i in range(50)]pprint(UAPOOL)]]></content>
