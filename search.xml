@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[从头开始学scrapy]]></title>
+    <url>%2F2018%2F08%2F15%2F%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E5%AD%A6scrapy%2F</url>
+    <content type="text"><![CDATA[创建虚拟环境参考 Python虚拟环境 Scrapy 框架基本命令创建Scrapy项目 进入命令行，输入 1scrapy startproject '项目名' 创建spider蜘蛛 进入刚创建的Scrapy项目目录 12cd '项目名'scrapy genspider '蜘蛛名' 运行Scrapy项目 1scrapy crawl '蜘蛛名' 数据导出为json格式中文乱码问题在配置文件settings.py中添加 1FEED_EXPORT_ENCODING = 'utf-8']]></content>
+      <categories>
+        <category>Programme</category>
+      </categories>
+      <tags>
+        <tag>Scrapy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Mysql数据库]]></title>
     <url>%2F2018%2F08%2F15%2FMysql%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
     <content type="text"><![CDATA[启动Mysql5.7进入命令行 1net start mysql57 1mysql -u root -p 输入密码即可。]]></content>

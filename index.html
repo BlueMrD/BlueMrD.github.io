@@ -350,6 +350,203 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/15/从头开始学scrapy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BlueMrD">
+      <meta itemprop="description" content="This is my blue sea.">
+      <meta itemprop="image" content="/images/Nicolas.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blue's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/15/从头开始学scrapy/" itemprop="url">
+                  从头开始学scrapy
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-15 16:22:37 / 修改时间：16:44:55" itemprop="dateCreated datePublished" datetime="2018-08-15T16:22:37+08:00">2018-08-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programme/" itemprop="url" rel="index"><span itemprop="name">Programme</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/15/从头开始学scrapy/" class="leancloud_visitors" data-flag-title="从头开始学scrapy">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">241</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3><span id="chuang-jian-xu-ni-huan-jing">创建虚拟环境</span><a href="#chuang-jian-xu-ni-huan-jing" class="header-anchor"></a></h3><p>参考 <a href="https://blog.csdn.net/Mr_blueD/article/details/80139324" target="_blank" rel="noopener">Python虚拟环境</a></p>
+<h3><span id="scrapy-kuang-jia-ji-ben-ming-ling">Scrapy 框架基本命令</span><a href="#scrapy-kuang-jia-ji-ben-ming-ling" class="header-anchor"></a></h3><p>创建Scrapy项目</p>
+<p>进入命令行，输入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy startproject <span class="string">'项目名'</span></span><br></pre></td></tr></table></figure>
+<p>创建spider蜘蛛</p>
+<p>进入刚创建的Scrapy项目目录</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="string">'项目名'</span></span><br><span class="line">scrapy genspider <span class="string">'蜘蛛名'</span></span><br></pre></td></tr></table></figure>
+<p>运行Scrapy项目</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl <span class="string">'蜘蛛名'</span></span><br></pre></td></tr></table></figure>
+<h3><span id="shu-ju-dao-chu-wei-json-ge-shi-zhong-wen-luan-ma-wen-ti">数据导出为json格式中文乱码问题</span><a href="#shu-ju-dao-chu-wei-json-ge-shi-zhong-wen-luan-ma-wen-ti" class="header-anchor"></a></h3><p>在配置文件settings.py中添加</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FEED_EXPORT_ENCODING = <span class="string">'utf-8'</span></span><br></pre></td></tr></table></figure>
+<img src="/2018/08/15/从头开始学scrapy/01.png" title="设置中文">
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/15/Mysql数据库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -467,10 +664,10 @@
           
             <h3><span id="qi-dong-mysql5-7">启动Mysql5.7</span><a href="#qi-dong-mysql5-7" class="header-anchor"></a></h3><p>进入命令行</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> mysql57</span><br></pre></td></tr></table></figure>
-
+<img src="/2018/08/15/Mysql数据库/01.png" title="开始启动">
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
 <p>输入密码即可。</p>
-
+<img src="/2018/08/15/Mysql数据库/02.png">
 
           
         
@@ -1746,7 +1943,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1761,7 +1958,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1784,7 +1983,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
