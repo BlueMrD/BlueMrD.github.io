@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[从头开始学scrapy]]></title>
     <url>%2F2018%2F08%2F15%2F%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E5%AD%A6scrapy%2F</url>
-    <content type="text"><![CDATA[创建虚拟环境参考 Python虚拟环境 Windows安装Scrapy参考 Scrapy安装 Scrapy 框架基本命令创建Scrapy项目 进入命令行，输入 1scrapy startproject '项目名' 创建spider蜘蛛 进入刚创建的Scrapy项目目录 12cd '项目名'scrapy genspider '蜘蛛名' 运行Scrapy项目 1scrapy crawl '蜘蛛名' 数据导出为json格式中文乱码问题导出为 json 格式命令 1scrapy crawl &apos;蜘蛛名&apos; -o &apos;文件名&apos;.json 导出为 csv格式命令类似 在配置文件settings.py中添加 1FEED_EXPORT_ENCODING = 'utf-8']]></content>
+    <content type="text"><![CDATA[创建虚拟环境参考 Python虚拟环境 Windows安装Scrapy参考 Scrapy安装 Scrapy 框架基本命令创建Scrapy项目 进入命令行，输入 1scrapy startproject '项目名' 创建spider蜘蛛 进入刚创建的Scrapy项目目录 12cd '项目名'scrapy genspider '蜘蛛名' 运行Scrapy项目 1scrapy crawl '蜘蛛名' 数据导出为json格式中文乱码问题导出为 json 格式命令 1scrapy crawl &apos;蜘蛛名&apos; -o &apos;文件名&apos;.json 导出为 csv 格式命令类似 在配置文件settings.py中添加 1FEED_EXPORT_ENCODING = 'utf-8']]></content>
       <categories>
         <category>Programme</category>
       </categories>
@@ -15,6 +15,9 @@
     <title><![CDATA[Mysql数据库]]></title>
     <url>%2F2018%2F08%2F15%2FMysql%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
     <content type="text"><![CDATA[启动Mysql5.7进入命令行 1net start mysql57 1mysql -u root -p 输入密码即可。]]></content>
+      <categories>
+        <category>Database</category>
+      </categories>
       <tags>
         <tag>Mysql</tag>
       </tags>
@@ -23,6 +26,9 @@
     <title><![CDATA[使用faker大魔王创建user_agent]]></title>
     <url>%2F2018%2F08%2F15%2F%E4%BD%BF%E7%94%A8faker%E5%A4%A7%E9%AD%94%E7%8E%8B%E5%88%9B%E5%BB%BAuser-agent%2F</url>
     <content type="text"><![CDATA[在知道有 faker 这个库之后我就想用来写爬虫的用户池了，先在这里记录一下。 123456789101112from faker import Factory, Fakerfrom pprint import pprintfactory = Factory.create() # factory = Facker()print(factory.user_agent())print()UAPOOL = [factory.user_agent for i in range(50)]pprint(UAPOOL)]]></content>
+      <categories>
+        <category>Programme</category>
+      </categories>
       <tags>
         <tag>Python</tag>
       </tags>
@@ -39,6 +45,9 @@
     <title><![CDATA[搭建Django2.1]]></title>
     <url>%2F2018%2F08%2F12%2F%E6%90%AD%E5%BB%BADjango2-1%2F</url>
     <content type="text"><![CDATA[创建Django项目打开命令行，选择一个文件夹(我的直接放桌面上)，输入 1django-admin startproject &apos;项目名称&apos; 例： 文件目录列表为 创建并添加Django应用创建应用：命令行进入刚刚的django项目文件夹下，输入 1python mange.py startapp &apos;应用名称&apos; 例： 添加应用：打开mysite/mysite/settings.py文件 这一步相当于将应用注册到django中。 迁移数据库命令行输入 1python mange.py migrate 会在数据库中创建Django自带的数据表。 创建超级用户这一步是为了后面使用Django后台对数据进行操作，必须在迁移数据库之后才能进行。 命令行输入 1python mange.py createsuperuser 邮箱可以不输入，按Enter跳过，但密码并不是不输入，而是输入了也不显示。 运行django命令行输入 1python mange.py runserver 网站中输入 127.0.01:8000 即可看到项目运行成功。 Django后台登录创建超级用户后，运行Django项目，进入网址 127.0.0.1:8000/admin 登录成功 1 记得帐号，但是忘记了密码 命令行输入 1python manage.py changepassword &lt;username&gt; username 是你的帐号。 这些你都懂？ 那么请看下面 djano小技巧]]></content>
+      <categories>
+        <category>Programme</category>
+      </categories>
       <tags>
         <tag>Django</tag>
       </tags>
@@ -46,7 +55,7 @@
   <entry>
     <title><![CDATA[Django小技巧]]></title>
     <url>%2F2018%2F08%2F12%2FDjango%E5%B0%8F%E6%8A%80%E5%B7%A7%2F</url>
-    <content type="text"><![CDATA[Django项目设置中文与本地时区在项目下的 settings.py 文件中进行设置，将 改为 运行项目打开网址即可 关于外键从Django2.0版本开始，在类模型中，定义外键和一对一关系字段时需要添加 on_delete 参数，不然会报错：init() missing 1 required positional argument: ‘on_delete’。 后台显示中文应用名、类名与字段名如何登陆Django后台? Django后台登录 在添加Django应用后，创建超级管理员账号可以登录Django自带的管理后台，比如我添加了一个名为blog的应用，登录后台后显示为 现在我们来将它修改为中文显示 在Django应用目录(即你添加的应用)下打开apps.py文件，在AppNameConfig类里添加两条属性即可，如图： 然后在blog应用目录下的init.py文件里添加一句 1default_app_config = &apos;AppName.apps.AppNameConfig&apos; 即可 例如在我的应用下这一句应为 1default_app_config = &apos;blog.apps.BlogConfig&apos; 在上图中可以看到在博客应用下有三个Model，分别为Categorys，Tag和Posts，现在来改为中文显示。 在定义上面三个Model的models.py文件夹里，修改对应的model类，如下图所示： 后面两个修改方式一样，修改之后刷新后台。 在此说一下 verbose_name 与 verbose_name_plural 的区别：以 Categorys 为例，可以看到该Model名后面有个 ‘s’，意为复数，所以如果只添加 verbose_name = ‘分类’， 则在后台显示会为 ‘分类s’。 在models.py中的model类中，通常会创建一些字段，一般会想要这些字段在后台为中文显示，方便识别。 显示为中文方法很简单，在定义该字段时添加 verbose_name 参数即可，例如：]]></content>
+    <content type="text"><![CDATA[Django项目设置中文与本地时区在项目下的 settings.py 文件中进行设置，将 改为 运行项目打开网址即可 关于外键从Django2.0版本开始，在类模型中，定义外键和一对一关系字段时需要添加 on_delete 参数，不然会报错：__init__() missing 1 required positional argument: &#39;on_delete&#39;。 后台显示中文应用名、类名与字段名如何登陆Django后台? Django后台登录 在添加Django应用后，创建超级管理员账号可以登录Django自带的管理后台，比如我添加了一个名为blog的应用，登录后台后显示为 现在我们来将它修改为中文显示 在Django应用目录(即你添加的应用)下打开apps.py文件，在AppNameConfig类里添加两条属性即可，如图： 然后在blog应用目录下的__init__.py文件里添加一句 1default_app_config = &apos;AppName.apps.AppNameConfig&apos; 即可 例如在我的应用下这一句应为 1default_app_config = &apos;blog.apps.BlogConfig&apos; 在上图中可以看到在博客应用下有三个Model，分别为Categorys，Tag和Posts，现在来改为中文显示。 在定义上面三个Model的models.py文件夹里，修改对应的model类，如下图所示： 后面两个修改方式一样，修改之后刷新后台。 在此说一下 verbose_name 与 verbose_name_plural 的区别：以 Categorys 为例，可以看到该Model名后面有个 &#39;s&#39;，意为复数，所以如果只添加 verbose_name = ‘分类’， 则在后台显示会为 ‘分类s’。 在models.py中的model类中，通常会创建一些字段，一般会想要这些字段在后台为中文显示，方便识别。 显示为中文方法很简单，在定义该字段时添加 verbose_name 参数即可，例如：]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -57,7 +66,7 @@
   <entry>
     <title><![CDATA[Hexo搭建博客错误解决]]></title>
     <url>%2F2018%2F08%2F06%2FHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%2F</url>
-    <content type="text"><![CDATA[使用hexo搭建个人博客的过程中碰到了好多的坑，现在一一填上。 hexo的下载安装可参考 hexo安装 Hexo常用命令1234567891011# 创建文章$ hexo new &apos;xxx&apos;# 创建标签$ hexo new page tags# 创建分类$ hexo new page categories# 调试命令$ hexo s ## hexo s -p 5000 更换端口 在文章中插图片必须配置： 1 把主页配置文件_config.yml 里的post_asset_folder:这个选项设置为true 2 在你的hexo目录下执行这样一句话npm install hexo-asset-image --save，这是下载安装一个可以上传本地图片的插件。 3 运行hexo n &quot;xxxx&quot;来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还有一个同名的文件夹。 两种方法： 1 使用Markdown 语法 1![对该图片的描述](同名文件夹名/图片名.jpg) 2 使用hexo自带插件 1&#123;% asset_img 图片名.png/jpg 对图片的描述写在这哦 %&#125; github仓库名必须与github用户名一致 使用 hexo s 时本地不显示博客内容，而显示 cannot get/xxx1$ hexo s -p 5000 换个端口即可。 设置语言为中文我最开始按照网站教程在站点配置文件_config.yml下的设置语言为中文 1language: zh-Hans 然而本地网站并没有换成中文。 因为在hexo的新版本中被更换了，改成 1language: zh-CN 即可。 配置LeanCloud，将阅读人数替换为热度参考： 配置LeanCloud 然而进入文章会出现这样的错误 “Counter not initialized! See more at console err msg” 解决方法参考：LearnCloud报错解决 添加阅读时长和本文字数]]></content>
+    <content type="text"><![CDATA[使用hexo搭建个人博客的过程中碰到了好多的坑，现在一一填上。 hexo的下载安装可参考 hexo安装 Hexo常用命令1234567891011# 创建文章$ hexo new &apos;xxx&apos;# 创建标签$ hexo new page tags# 创建分类$ hexo new page categories# 调试命令$ hexo s ## hexo s -p 5000 更换端口 在文章中插图片必须配置： 1 把主页配置文件_config.yml 里的post_asset_folder:这个选项设置为true 2 在你的hexo目录下执行这样一句话npm install hexo-asset-image --save，这是下载安装一个可以上传本地图片的插件。 3 运行hexo n &quot;xxxx&quot;来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还有一个同名的文件夹。 两种方法： 1 使用Markdown 语法 1![对该图片的描述](同名文件夹名/图片名.jpg) 2 使用hexo自带插件 1&#123;% asset_img 图片名.png/jpg 对图片的描述写在这哦 %&#125; github仓库名必须与github用户名一致 使用 hexo s 时本地不显示博客内容，而显示 cannot get/xxx1$ hexo s -p 5000 换个端口即可。 设置语言为中文我最开始按照网站教程在站点配置文件_config.yml下的设置语言为中文 1language: zh-Hans 然而本地网站并没有换成中文。 因为在hexo的新版本中被更换了，改成 1language: zh-CN 即可。 配置LeanCloud，将阅读人数替换为热度参考： 配置LeanCloud 然而进入文章会出现这样的错误 &quot;Counter not initialized! See more at console err msg&quot; 解决方法参考：LearnCloud报错解决 添加阅读时长和本文字数]]></content>
       <tags>
         <tag>Hexo</tag>
       </tags>
@@ -66,5 +75,8 @@
     <title><![CDATA[Hello World]]></title>
     <url>%2F2018%2F08%2F06%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot; More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
 </search>

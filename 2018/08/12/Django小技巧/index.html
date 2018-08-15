@@ -134,13 +134,13 @@
 
 
 
-  <meta name="description" content="Django项目设置中文与本地时区在项目下的 settings.py 文件中进行设置，将  改为  运行项目打开网址即可  关于外键从Django2.0版本开始，在类模型中，定义外键和一对一关系字段时需要添加 on_delete 参数，不然会报错：init() missing 1 required positional argument: ‘on_delete’。  后台显示中文应用名、类名与字段">
+  <meta name="description" content="Django项目设置中文与本地时区在项目下的 settings.py 文件中进行设置，将  改为  运行项目打开网址即可  关于外键从Django2.0版本开始，在类模型中，定义外键和一对一关系字段时需要添加 on_delete 参数，不然会报错：__init__() missing 1 required positional argument: &amp;#39;on_delete&amp;#39;。  后台显">
 <meta name="keywords" content="Django">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Django小技巧">
 <meta property="og:url" content="http://yoursite.com/2018/08/12/Django小技巧/index.html">
 <meta property="og:site_name" content="Blue&#39;s blog">
-<meta property="og:description" content="Django项目设置中文与本地时区在项目下的 settings.py 文件中进行设置，将  改为  运行项目打开网址即可  关于外键从Django2.0版本开始，在类模型中，定义外键和一对一关系字段时需要添加 on_delete 参数，不然会报错：init() missing 1 required positional argument: ‘on_delete’。  后台显示中文应用名、类名与字段">
+<meta property="og:description" content="Django项目设置中文与本地时区在项目下的 settings.py 文件中进行设置，将  改为  运行项目打开网址即可  关于外键从Django2.0版本开始，在类模型中，定义外键和一对一关系字段时需要添加 on_delete 参数，不然会报错：__init__() missing 1 required positional argument: &amp;#39;on_delete&amp;#39;。  后台显">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/08.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/09.png">
@@ -152,10 +152,10 @@
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/05.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/06.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/07.png">
-<meta property="og:updated_time" content="2018-08-15T05:34:25.542Z">
+<meta property="og:updated_time" content="2018-08-15T14:57:51.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django小技巧">
-<meta name="twitter:description" content="Django项目设置中文与本地时区在项目下的 settings.py 文件中进行设置，将  改为  运行项目打开网址即可  关于外键从Django2.0版本开始，在类模型中，定义外键和一对一关系字段时需要添加 on_delete 参数，不然会报错：init() missing 1 required positional argument: ‘on_delete’。  后台显示中文应用名、类名与字段">
+<meta name="twitter:description" content="Django项目设置中文与本地时区在项目下的 settings.py 文件中进行设置，将  改为  运行项目打开网址即可  关于外键从Django2.0版本开始，在类模型中，定义外键和一对一关系字段时需要添加 on_delete 参数，不然会报错：__init__() missing 1 required positional argument: &amp;#39;on_delete&amp;#39;。  后台显">
 <meta name="twitter:image" content="http://yoursite.com/2018/08/12/Django小技巧/08.png">
 
 
@@ -440,7 +440,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-15 13:34:25" itemprop="dateModified" datetime="2018-08-15T13:34:25+08:00">2018-08-15</time>
+                <time title="修改时间：2018-08-15 22:57:51" itemprop="dateModified" datetime="2018-08-15T22:57:51+08:00">2018-08-15</time>
               
             
           </span>
@@ -496,7 +496,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">889</span>
+                <span title="本文字数">913</span>
               
 
               
@@ -520,34 +520,34 @@
       
 
       
-        <h3><span id="django-xiang-mu-she-zhi-zhong-wen-yu-ben-di-shi-qu">Django项目设置中文与本地时区</span><a href="#django-xiang-mu-she-zhi-zhong-wen-yu-ben-di-shi-qu" class="header-anchor"></a></h3><p>在项目下的 settings.py 文件中进行设置，将</p>
+        <h3><span id="django-xiang-mu-she-zhi-zhong-wen-yu-ben-di-shi-qu">Django项目设置中文与本地时区</span><a href="#django-xiang-mu-she-zhi-zhong-wen-yu-ben-di-shi-qu" class="header-anchor"></a></h3><p>在项目下的 <code>settings.py</code> 文件中进行设置，将</p>
 <img src="/2018/08/12/Django小技巧/08.png" title="地区与时间">
 <p>改为</p>
 <img src="/2018/08/12/Django小技巧/09.png" title="中文地区与时间">
 <p>运行项目打开网址即可</p>
 <img src="/2018/08/12/Django小技巧/10.png" title="修改成功">
-<h3><span id="guan-yu-wai-jian">关于外键</span><a href="#guan-yu-wai-jian" class="header-anchor"></a></h3><p>从Django2.0版本开始，在类模型中，定义外键和一对一关系字段时需要添加 on_delete 参数，不然会报错：<strong>init</strong>() missing 1 required positional argument: ‘on_delete’。</p>
+<h3><span id="guan-yu-wai-jian">关于外键</span><a href="#guan-yu-wai-jian" class="header-anchor"></a></h3><p>从<code>Django2.0</code>版本开始，在类模型中，定义外键和一对一关系字段时需要添加 <code>on_delete</code> 参数，不然会报错：<code>__init__() missing 1 required positional argument: &#39;on_delete&#39;</code>。</p>
 <p><img src="/2018/08/12/Django小技巧/01.png" alt="&#39;多对多关系字段无须添加&#39;"></p>
-<h3><span id="hou-tai-xian-shi-zhong-wen-ying-yong-ming-lei-ming-yu-zi-duan-ming">后台显示中文应用名、类名与字段名</span><a href="#hou-tai-xian-shi-zhong-wen-ying-yong-ming-lei-ming-yu-zi-duan-ming" class="header-anchor"></a></h3><p>如何登陆Django后台?  <a href="https://bluemrd.github.io/2018/08/12/%E6%90%AD%E5%BB%BADjango2-1/" target="_blank" rel="noopener">Django后台登录</a></p>
-<p>在添加Django应用后，创建超级管理员账号可以登录Django自带的管理后台，比如我添加了一个名为blog的应用，登录后台后显示为</p>
+<h3><span id="hou-tai-xian-shi-zhong-wen-ying-yong-ming-lei-ming-yu-zi-duan-ming">后台显示中文应用名、类名与字段名</span><a href="#hou-tai-xian-shi-zhong-wen-ying-yong-ming-lei-ming-yu-zi-duan-ming" class="header-anchor"></a></h3><p>如何登陆<code>Django</code>后台?  <a href="https://bluemrd.github.io/2018/08/12/%E6%90%AD%E5%BB%BADjango2-1/" target="_blank" rel="noopener">Django后台登录</a></p>
+<p>在添加<code>Django</code>应用后，创建超级管理员账号可以登录<code>Django</code>自带的管理后台，比如我添加了一个名为<code>blog</code>的应用，登录后台后显示为</p>
 <p><img src="/2018/08/12/Django小技巧/02.png" alt="后台显示为英文大写BLOG"></p>
 <p>现在我们来将它修改为中文显示</p>
-<p>在Django应用目录(即你添加的应用)下打开apps.py文件，在AppNameConfig类里添加两条属性即可，如图：</p>
-<p>然后在blog应用目录下的<strong>init</strong>.py文件里添加一句</p>
+<p>在<code>Django</code>应用目录(即你添加的应用)下打开<code>apps.py</code>文件，在<code>AppNameConfig</code>类里添加两条属性即可，如图：</p>
+<p>然后在<code>blog</code>应用目录下的<code>__init__.py</code>文件里添加一句</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default_app_config = &apos;AppName.apps.AppNameConfig&apos;</span><br></pre></td></tr></table></figure>
 <p>即可</p>
 <p>例如在我的应用下这一句应为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default_app_config = &apos;blog.apps.BlogConfig&apos;</span><br></pre></td></tr></table></figure>
 <img src="/2018/08/12/Django小技巧/03.png" title="应用名中文显示">
-<p>在上图中可以看到在博客应用下有三个Model，分别为Categorys，Tag和Posts，现在来改为中文显示。</p>
-<p>在定义上面三个Model的models.py文件夹里，修改对应的model类，如下图所示：</p>
+<p>在上图中可以看到在博客应用下有三个<code>Model</code>，分别为<code>Categorys</code>，<code>Tag</code>和<code>Posts</code>，现在来改为中文显示。</p>
+<p>在定义上面三个<code>Model</code>的<code>models.py</code>文件夹里，修改对应的<code>model</code>类，如下图所示：</p>
 <img src="/2018/08/12/Django小技巧/04.png" title="添加Meta原类属性">
 <p>后面两个修改方式一样，修改之后刷新后台。</p>
 <img src="/2018/08/12/Django小技巧/05.png" title="Model名中文显示">
-<p>在此说一下 verbose_name 与 verbose_name_plural 的区别：以 Categorys 为例，可以看到该Model名后面有个 ‘s’，意为复数，所以如果只添加 verbose_name = ‘分类’， 则在后台显示会为 ‘分类s’。</p>
+<p>在此说一下 <code>verbose_name</code> 与 <code>verbose_name_plural</code> 的区别：以 <code>Categorys</code> 为例，可以看到该<code>Model</code>名后面有个 <code>&#39;s&#39;</code>，意为复数，所以如果只添加 <code>verbose_name</code> = ‘分类’， 则在后台显示会为 ‘分类s’。</p>
 <img src="/2018/08/12/Django小技巧/06.png" title="中文复数形式">
 <p>在models.py中的model类中，通常会创建一些字段，一般会想要这些字段在后台为中文显示，方便识别。</p>
-<p>显示为中文方法很简单，在定义该字段时添加 verbose_name 参数即可，例如：</p>
+<p>显示为中文方法很简单，在定义该字段时添加 <code>verbose_name</code> 参数即可，例如：</p>
 <img src="/2018/08/12/Django小技巧/07.png" title="字段名中文显示">
 
       
@@ -745,7 +745,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
