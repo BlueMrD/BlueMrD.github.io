@@ -369,6 +369,252 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/12/Django小技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BlueMrD">
+      <meta itemprop="description" content="This is my blue sea.">
+      <meta itemprop="image" content="/images/Nicolas.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blue's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/12/Django小技巧/" itemprop="url">
+                  Django小技巧
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-12 23:13:52" itemprop="dateCreated datePublished" datetime="2018-08-12T23:13:52+08:00">2018-08-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-16 09:19:04" itemprop="dateModified" datetime="2018-08-16T09:19:04+08:00">2018-08-16</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/12/Django小技巧/" class="leancloud_visitors" data-flag-title="Django小技巧">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.4k</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3><span id="django项目设置中文与本地时区">Django项目设置中文与本地时区</span></h3><p>在项目下的 <code>settings.py</code> 文件中进行设置，将</p>
+<img src="/2018/08/12/Django小技巧/08.png" title="地区与时间">
+<p>改为</p>
+<img src="/2018/08/12/Django小技巧/09.png" title="中文地区与时间">
+<p>运行项目打开网址即可</p>
+<img src="/2018/08/12/Django小技巧/10.png" title="修改成功">
+<h3><span id="关于外键">关于外键</span></h3><p>从<code>Django2.0</code>版本开始，在类模型中，定义外键和一对一关系字段时需要添加 <code>on_delete</code> 参数，不然会报错：<code>__init__() missing 1 required positional argument: &#39;on_delete&#39;</code>。</p>
+<p><img src="/2018/08/12/Django小技巧/01.png" alt="&#39;多对多关系字段无须添加&#39;"></p>
+<h3><span id="后台显示中文应用名-类名与字段名">后台显示中文应用名、类名与字段名</span></h3><p>如何登陆<code>Django</code>后台?  <a href="https://bluemrd.github.io/2018/08/12/%E6%90%AD%E5%BB%BADjango2-1/" target="_blank" rel="noopener">Django后台登录</a></p>
+<p>在添加<code>Django</code>应用后，创建超级管理员账号可以登录<code>Django</code>自带的管理后台，比如我添加了一个名为<code>blog</code>的应用，登录后台后显示为</p>
+<p><img src="/2018/08/12/Django小技巧/02.png" alt="后台显示为英文大写BLOG"></p>
+<p>现在我们来将它修改为中文显示</p>
+<p>在<code>Django</code>应用目录(即你添加的应用)下打开<code>apps.py</code>文件，在<code>AppNameConfig</code>类里添加两条属性即可，如图：</p>
+<p>然后在<code>blog</code>应用目录下的<code>__init__.py</code>文件里添加一句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default_app_config = &apos;AppName.apps.AppNameConfig&apos;</span><br></pre></td></tr></table></figure>
+<p>即可</p>
+<p>例如在我的应用下这一句应为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default_app_config = &apos;blog.apps.BlogConfig&apos;</span><br></pre></td></tr></table></figure>
+<img src="/2018/08/12/Django小技巧/03.png" title="应用名中文显示">
+<p>在上图中可以看到在博客应用下有三个<code>Model</code>，分别为<code>Categorys</code>，<code>Tag</code>和<code>Posts</code>，现在来改为中文显示。</p>
+<p>在定义上面三个<code>Model</code>的<code>models.py</code>文件夹里，修改对应的<code>model</code>类，如下图所示：</p>
+<img src="/2018/08/12/Django小技巧/04.png" title="添加Meta原类属性">
+<p>后面两个修改方式一样，修改之后刷新后台。</p>
+<img src="/2018/08/12/Django小技巧/05.png" title="Model名中文显示">
+<p>在此说一下 <code>verbose_name</code> 与 <code>verbose_name_plural</code> 的区别：以 <code>Categorys</code> 为例，可以看到该<code>Model</code>名后面有个 <code>&#39;s&#39;</code>，意为复数，所以如果只添加 <code>verbose_name</code> = ‘分类’， 则在后台显示会为 ‘分类s’。</p>
+<img src="/2018/08/12/Django小技巧/06.png" title="中文复数形式">
+<p>在models.py中的model类中，通常会创建一些字段，一般会想要这些字段在后台为中文显示，方便识别。</p>
+<p>显示为中文方法很简单，在定义该字段时添加 <code>verbose_name</code> 参数即可，例如：</p>
+<img src="/2018/08/12/Django小技巧/07.png" title="字段名中文显示">
+<h3><span id="反向查询与数量统计">反向查询与数量统计</span></h3><p>我在 Django 里写了两个 <code>Model</code>，一个是 <code>Post</code>（文章），一个是 <code>Comment</code>（评论），两者是一对多关系 <code>Post</code>是<code>Comment</code> 的外键，如图：</p>
+<img src="/2018/08/12/Django小技巧/11.png" title="Post">
+
+<p>在视图中如果需要取出一篇文章的全部评论，可以这样写</p>
+<p><code>post= get_object_or_404(Post, pk=pk)</code></p>
+<p><code>comment_list = Comment.objects.filter(post=post)</code></p>
+<p>这是从所有评论中选出属于 <code>post</code> 文章的评论</p>
+<p>现在来看另一种方法，直接查询某篇文章所有属于它的评论</p>
+<p><code>post = get_object_or_404(Post, pk=pk)</code></p>
+<p><code>comment_list = post.comment_set.all()</code></p>
+<p>当然，我们一般会在文章页统计评论数，应该怎么做呢？</p>
+<p>在模板文件中使用  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% post.comment_set.count %&#125;</span><br></pre></td></tr></table></figure>
+<p> 即可。</p>
+<p>（模型管理器<code>comment_set</code> 是一个特殊的模型管理器）还有一个<code>count</code>方法，返回数量 。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/06/Hexo搭建博客错误解决/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -815,7 +1061,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -859,7 +1105,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
