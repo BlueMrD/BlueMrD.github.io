@@ -496,19 +496,41 @@
       
         
           
-          使用hexo搭建个人博客的过程中碰到了好多的坑，现在一一填上。
-hexo的下载安装可参考  hexo安装
-Hexo常用命令1234567891011# 创建文章$ hexo new &apos;xxx&apos;# 创建标签$ hexo new page tags# 创建分类$ hexo new page categories# 调试命令$ hexo s  ## hexo s -p 5000 更换端口
-在文章中插图片必须配置：
-1 把主页配置文件_config.yml 里的post_asset_
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/06/Hexo搭建博客错误解决/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>使用<code>hexo</code>搭建个人博客的过程中碰到了好多的坑，现在一一填上。</p>
+<p><code>hexo</code>的下载安装可参考  <a href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html" target="_blank" rel="noopener">hexo安装</a></p>
+<h2><span id="hexo常用命令">Hexo常用命令</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 创建文章</span><br><span class="line">$ hexo new &apos;xxx&apos;</span><br><span class="line"></span><br><span class="line"># 创建标签</span><br><span class="line">$ hexo new page tags</span><br><span class="line"></span><br><span class="line"># 创建分类</span><br><span class="line">$ hexo new page categories</span><br><span class="line"></span><br><span class="line"># 调试命令</span><br><span class="line">$ hexo s  ## hexo s -p 5000 更换端口</span><br></pre></td></tr></table></figure>
+<h2><span id="在文章中插图片">在文章中插图片</span></h2><p>必须配置：</p>
+<p>1 把主页配置文件<code>_config.yml</code> 里的<code>post_asset_folder:</code>这个选项设置为<code>true</code></p>
+<p>2 在你的hexo目录下执行这样一句话<code>npm install hexo-asset-image --save</code>，这是下载安装一个可以上传本地图片的插件。</p>
+<p>3 运行<code>hexo n &quot;xxxx&quot;</code>来生成md博文时，<code>/source/_posts</code>文件夹内除了<code>xxxx.md</code>文件还有一个<strong>同名的文件夹</strong>。</p>
+<p>两种方法：</p>
+<p>1 使用<code>Markdown</code> 语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![对该图片的描述](同名文件夹名/图片名.jpg)</span><br></pre></td></tr></table></figure>
+<p>2 使用<code>hexo</code>自带插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img 图片名.png/jpg 对图片的描述写在这哦 %&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="github仓库名必须与github用户名一致">github仓库名必须与github用户名一致</span></h2><img src="/2018/08/06/Hexo搭建博客错误解决/01.png" title="这是我的github仓库">
+<h2><span id="使用-hexo-s-时本地不显示博客内容而显示-cannot-getxxx">使用 hexo s 时本地不显示博客内容，而显示 cannot get/xxx</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s -p 5000</span><br></pre></td></tr></table></figure>
+<p>换个端口即可。</p>
+<h2><span id="设置语言为中文">设置语言为中文</span></h2><p>我最开始按照网站教程在站点配置文件<code>_config.yml</code>下的设置语言为中文</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language: zh-Hans</span><br></pre></td></tr></table></figure>
+<p>然而本地网站并没有换成中文。</p>
+<p>因为在<code>hexo</code>的新版本中被更换了，改成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language: zh-CN</span><br></pre></td></tr></table></figure>
+<p>即可。</p>
+<h2><span id="配置leancloud将阅读人数替换为热度">配置LeanCloud，将阅读人数替换为热度</span></h2><p>参考：</p>
+<p><a href="https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud" target="_blank" rel="noopener">配置LeanCloud</a></p>
+<p>然而进入文章会出现这样的错误 <code>&quot;Counter not initialized! See more at console err msg&quot;</code></p>
+<img src="/2018/08/06/Hexo搭建博客错误解决/02.png" title="配置热度报错">
+<p>解决方法参考：<a href="https://leaferx.online/2018/02/11/lc-security/" target="_blank" rel="noopener">LearnCloud报错解决</a></p>
+<h2><span id="添加阅读时长和本文字数">添加阅读时长和本文字数</span></h2><h3><span id="博文压缩">博文压缩</span></h3><p>安装 <code>gulp</code>以及依赖包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save-dev babel-cli</span><br><span class="line">$ npm install --save-dev babel-preset-es2015</span><br><span class="line">$ npm install gulp-minify-css gulp-babel gulp-uglify gulp-htmlmin gulp-htmlclean --save-dev</span><br></pre></td></tr></table></figure>
+<p>在博客的根目录创建新文件 <code>gulpfile.js</code>，添加如下代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> minifycss = <span class="built_in">require</span>(<span class="string">'gulp-minify-css'</span>);</span><br><span class="line"><span class="keyword">var</span> babel = <span class="built_in">require</span>(<span class="string">'gulp-babel'</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">'gulp-htmlmin'</span>);</span><br><span class="line"><span class="keyword">var</span> htmlclean = <span class="built_in">require</span>(<span class="string">'gulp-htmlclean'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'minify-css'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> gulp.src(<span class="string">'./public/**/*.css'</span>)</span><br><span class="line">.pipe(minifycss())</span><br><span class="line">.pipe(gulp.dest(<span class="string">'./public'</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'minify-html'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> gulp.src(<span class="string">'./public/**/*.html'</span>)</span><br><span class="line">.pipe(htmlclean())</span><br><span class="line">.pipe(htmlmin(&#123;</span><br><span class="line">removeComments: <span class="literal">true</span>,</span><br><span class="line">minifyJS: <span class="literal">true</span>,</span><br><span class="line">minifyCSS: <span class="literal">true</span>,</span><br><span class="line">minifyURLs: <span class="literal">true</span>,</span><br><span class="line">&#125;))</span><br><span class="line"></span><br><span class="line">.pipe(gulp.dest(<span class="string">'./public'</span>))</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'minify-js'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> gulp.src([<span class="string">'./public/**/*.js'</span>, <span class="string">'!./public/**/*.min.js'</span>])</span><br><span class="line">.pipe(babel(&#123; <span class="attr">presets</span>: [<span class="string">'es2015'</span>] &#125;))</span><br><span class="line">.pipe(uglify())</span><br><span class="line">.pipe(gulp.dest(<span class="string">'./public'</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'minify-html'</span>, <span class="string">'minify-css'</span>, <span class="string">'minify-js'</span>]);</span><br></pre></td></tr></table></figure>
+<p>执行 <code>hexo g</code> 产生编译文件之后，执行 <code>gulp</code>进行压缩，以下信息代表压缩成功</p>
+<img src="/2018/08/06/Hexo搭建博客错误解决/03.png" title="压缩成功"> 
+<p>再执行 <code>hexo d</code>部署到服务器上即可。</p>
+
+          
         
       
     </div>
@@ -691,16 +713,17 @@ Hexo常用命令1234567891011# 创建文章$ hexo new &apos;xxx&apos;# 创建标
       
         
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new &quot;My New Po
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/06/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2><span id="quick-start">Quick Start</span></h2><h3><span id="create-a-new-post">Create a new post</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;My New Post&quot;</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3><span id="run-server">Run server</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3><span id="generate-static-files">Generate static files</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3><span id="deploy-to-remote-sites">Deploy to remote sites</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+          
         
       
     </div>
