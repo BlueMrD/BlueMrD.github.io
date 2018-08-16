@@ -152,7 +152,8 @@
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/05.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/06.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/07.png">
-<meta property="og:updated_time" content="2018-08-15T14:57:51.273Z">
+<meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/11.png">
+<meta property="og:updated_time" content="2018-08-16T01:19:04.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django小技巧">
 <meta name="twitter:description" content="Django项目设置中文与本地时区在项目下的 settings.py 文件中进行设置，将  改为  运行项目打开网址即可  关于外键从Django2.0版本开始，在类模型中，定义外键和一对一关系字段时需要添加 on_delete 参数，不然会报错：__init__() missing 1 required positional argument: &amp;#39;on_delete&amp;#39;。  后台显">
@@ -440,7 +441,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-15 22:57:51" itemprop="dateModified" datetime="2018-08-15T22:57:51+08:00">2018-08-15</time>
+                <time title="修改时间：2018-08-16 09:19:04" itemprop="dateModified" datetime="2018-08-16T09:19:04+08:00">2018-08-16</time>
               
             
           </span>
@@ -496,7 +497,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">913</span>
+                <span title="本文字数">1.4k</span>
               
 
               
@@ -549,6 +550,21 @@
 <p>在models.py中的model类中，通常会创建一些字段，一般会想要这些字段在后台为中文显示，方便识别。</p>
 <p>显示为中文方法很简单，在定义该字段时添加 <code>verbose_name</code> 参数即可，例如：</p>
 <img src="/2018/08/12/Django小技巧/07.png" title="字段名中文显示">
+<h3><span id="fan-xiang-cha-xun-yu-shu-liang-tong-ji">反向查询与数量统计</span><a href="#fan-xiang-cha-xun-yu-shu-liang-tong-ji" class="header-anchor"></a></h3><p>我在 Django 里写了两个 <code>Model</code>，一个是 <code>Post</code>（文章），一个是 <code>Comment</code>（评论），两者是一对多关系 <code>Post</code>是<code>Comment</code> 的外键，如图：</p>
+<img src="/2018/08/12/Django小技巧/11.png" title="Post">
+
+<p>在视图中如果需要取出一篇文章的全部评论，可以这样写</p>
+<p><code>post= get_object_or_404(Post, pk=pk)</code></p>
+<p><code>comment_list = Comment.objects.filter(post=post)</code></p>
+<p>这是从所有评论中选出属于 <code>post</code> 文章的评论</p>
+<p>现在来看另一种方法，直接查询某篇文章所有属于它的评论</p>
+<p><code>post = get_object_or_404(Post, pk=pk)</code></p>
+<p><code>comment_list = post.comment_set.all()</code></p>
+<p>当然，我们一般会在文章页统计评论数，应该怎么做呢？</p>
+<p>在模板文件中使用  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% post.comment_set.count %&#125;</span><br></pre></td></tr></table></figure>
+<p> 即可。</p>
+<p>（模型管理器<code>comment_set</code> 是一个特殊的模型管理器）还有一个<code>count</code>方法，返回数量 。</p>
 
       
     </div>
@@ -815,7 +831,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Django项目设置中文与本地时区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">关于外键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">后台显示中文应用名、类名与字段名</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Django项目设置中文与本地时区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">关于外键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">后台显示中文应用名、类名与字段名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">反向查询与数量统计</span></a></li></ol></div>
             
 
           </div>
