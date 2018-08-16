@@ -514,33 +514,34 @@
       
         
           
-            <p>`</p>
-<!-- toc -->
-<ul>
-<li><a href="#创建虚拟环境">创建虚拟环境</a></li>
-<li><a href="#windows安装scrapy">Windows安装Scrapy</a></li>
-<li><a href="#scrapy-框架基本命令">Scrapy 框架基本命令</a></li>
-<li><a href="#数据导出为json格式中文乱码问题">数据导出为json格式中文乱码问题</a></li>
-</ul>
-<!-- tocstop -->
-<p>`</p>
-<h3><span id="创建虚拟环境">创建虚拟环境</span></h3><p>参考 <a href="https://blog.csdn.net/Mr_blueD/article/details/80139324" target="_blank" rel="noopener">Python虚拟环境</a></p>
-<h3><span id="windows安装scrapy">Windows安装Scrapy</span></h3><p>参考 <a href="https://blog.csdn.net/Mr_blueD/article/details/79715252" target="_blank" rel="noopener">Scrapy安装</a></p>
-<h3><span id="scrapy-框架基本命令">Scrapy 框架基本命令</span></h3><p>创建<code>Scrapy</code>项目</p>
-<p>进入命令行，输入</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy startproject <span class="string">'项目名'</span></span><br></pre></td></tr></table></figure>
-<p>创建<code>spider</code>蜘蛛</p>
-<p>进入刚创建的<code>Scrapy</code>项目目录</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="string">'项目名'</span></span><br><span class="line">scrapy genspider <span class="string">'蜘蛛名'</span></span><br></pre></td></tr></table></figure>
-<p>运行<code>Scrapy</code>项目</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl <span class="string">'蜘蛛名'</span></span><br></pre></td></tr></table></figure>
-<h3><span id="数据导出为json格式中文乱码问题">数据导出为json格式中文乱码问题</span></h3><p>导出为 <code>json</code> 格式命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl &apos;蜘蛛名&apos; -o &apos;文件名&apos;.json</span><br></pre></td></tr></table></figure>
-<p>导出为 <code>csv</code> 格式命令类似</p>
-<p>在配置文件<code>settings.py</code>中添加</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FEED_EXPORT_ENCODING = <span class="string">'utf-8'</span></span><br></pre></td></tr></table></figure>
-<img src="/2018/08/15/从头开始学scrapy/01.png" title="设置中文">
-          
+          `
+
+
+创建虚拟环境
+Windows安装Scrapy
+Scrapy 框架基本命令
+数据导出为json格式中文乱码问题
+
+
+`
+创建虚拟环境参考 Python虚拟环境
+Windows安装Scrapy参考 Scrapy安装
+Scrapy 框架基本命令创建Scrapy项目
+进入命令行，输入
+1scrapy startproject '项目名'
+创建spider蜘蛛
+进入刚创建的Scrapy项目目录
+12cd '项目名'scrapy genspider '蜘蛛名'
+运行Scrapy项目
+1scrapy 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/15/从头开始学scrapy/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -729,14 +730,21 @@
       
         
           
-            <h3><span id="启动mysql57">启动Mysql5.7</span></h3><p>进入命令行</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> mysql57</span><br></pre></td></tr></table></figure>
-<img src="/2018/08/15/Mysql数据库/01.png" title="开始启动">
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
-<p>输入密码即可。</p>
-<img src="/2018/08/15/Mysql数据库/02.png">
+          启动Mysql5.7进入命令行
+1net start mysql57
+
+1mysql -u root -p
+输入密码即可。
+
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/15/Mysql数据库/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -925,10 +933,16 @@
       
         
           
-            <p>在知道有 <code>faker</code> 这个库之后我就想用来写爬虫的用户池了，先在这里记录一下。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> faker <span class="keyword">import</span> Factory, Faker</span><br><span class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">factory = Factory.create()  <span class="comment"># factory = Facker()</span></span><br><span class="line"></span><br><span class="line">print(factory.user_agent())</span><br><span class="line"></span><br><span class="line">print()</span><br><span class="line"></span><br><span class="line">UAPOOL = [factory.user_agent <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">50</span>)]</span><br><span class="line">pprint(UAPOOL)</span><br></pre></td></tr></table></figure>
-<img src="/2018/08/15/使用faker大魔王创建user-agent/01.png" title="打印结果">
-          
+          在知道有 faker 这个库之后我就想用来写爬虫的用户池了，先在这里记录一下。
+123456789101112from faker import Factory, Fakerfrom pprint import pprintfactory = Factory.create()  # factory = Facker()print(factory.user_agent())print()UAPOOL = [factory.user_agent for i in range(50)]pprint(U
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/15/使用faker大魔王创建user-agent/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
