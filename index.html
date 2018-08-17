@@ -444,7 +444,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-17 10:26:28" itemprop="dateModified" datetime="2018-08-17T10:26:28+08:00">2018-08-17</time>
+                <time title="修改时间：2018-08-17 11:29:54" itemprop="dateModified" datetime="2018-08-17T11:29:54+08:00">2018-08-17</time>
               
             
           </span>
@@ -500,7 +500,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.4k</span>
+                <span title="本文字数">2.4k</span>
               
 
               
@@ -570,6 +570,19 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% post.comment_set.count %&#125;</span><br></pre></td></tr></table></figure>
 <p> 即可。</p>
 <p>（模型管理器<code>comment_set</code> 是一个特殊的模型管理器）还有一个<code>count</code>方法，返回数量 。</p>
+<h3><span id="模板文件-静态文件与媒体资源">模板文件、静态文件与媒体资源</span></h3><p>在 <code>Django2.1</code> 中，如果你将模板文件、静态文件与媒体资源放在应用下，则在访问资源时，会自动寻找，无须进行设置。</p>
+<p>创建文件时，文件名是固定写法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">templates   <span class="comment"># 模板文件</span></span><br><span class="line">static      <span class="comment"># 静态文件</span></span><br><span class="line">media       <span class="comment"># 媒体资源文件</span></span><br></pre></td></tr></table></figure>
+<p>例：放在应用 <code>blog</code> 下的模板文件</p>
+<img src="/2018/08/12/Django小技巧/13.png" title="blog/templates">
+<p>如果需要放在项目目录下，则需在 <code>settings.py</code>中进行设置</p>
+<p>模板文件 templates路径添加</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'BACKEND'</span>: <span class="string">'django.template.backends.django.DjangoTemplates'</span>,</span><br><span class="line">        -<span class="string">'DIRS'</span>: [],</span><br><span class="line">        +<span class="string">'DIRS'</span>: [os.path.join(BASE_DIR, <span class="string">'templates'</span>)],</span><br><span class="line">        <span class="string">'APP_DIRS'</span>: <span class="keyword">True</span>,</span><br><span class="line">        <span class="string">'OPTIONS'</span>: &#123;</span><br><span class="line">            <span class="string">'context_processors'</span>: [</span><br><span class="line">                <span class="string">'django.template.context_processors.debug'</span>,</span><br><span class="line">                <span class="string">'django.template.context_processors.request'</span>,</span><br><span class="line">                <span class="string">'django.contrib.auth.context_processors.auth'</span>,</span><br><span class="line">                <span class="string">'django.contrib.messages.context_processors.messages'</span>,</span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<img src="/2018/08/12/Django小技巧/14.png" title="djangoblog/templates">
+<p>静态文件路径添加，在 <code>settings.py</code> 中的末尾添加</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">STATIC_PATH = os.path.join(BASE_DIR, <span class="string">'static'</span>)</span><br><span class="line"></span><br><span class="line">STATICFILES_DIRS = (</span><br><span class="line">    STATIC_PATH,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>媒体资源路径添加</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MEDIA_URL = <span class="string">'/media/'</span></span><br><span class="line">MEDIA_ROOT = os.path.join(BASE_DIR, <span class="string">'media'</span>)</span><br></pre></td></tr></table></figure>
 
           
         
