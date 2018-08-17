@@ -444,7 +444,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-17 11:29:54" itemprop="dateModified" datetime="2018-08-17T11:29:54+08:00">2018-08-17</time>
+                <time title="修改时间：2018-08-17 11:40:39" itemprop="dateModified" datetime="2018-08-17T11:40:39+08:00">2018-08-17</time>
               
             
           </span>
@@ -525,16 +525,15 @@
 
       
         
-          
-            <h3><span id="django项目设置中文与本地时区">Django项目设置中文与本地时区</span></h3><p>在项目下的 <code>settings.py</code> 文件中进行设置，将</p>
+          <h3 id="Django项目设置中文与本地时区"><a href="#Django项目设置中文与本地时区" class="headerlink" title="Django项目设置中文与本地时区"></a>Django项目设置中文与本地时区</h3><p>在项目下的 <code>settings.py</code> 文件中进行设置，将</p>
 <img src="/2018/08/12/Django小技巧/08.png" title="地区与时间">
 <p>改为</p>
 <img src="/2018/08/12/Django小技巧/09.png" title="中文地区与时间">
 <p>运行项目打开网址即可</p>
 <img src="/2018/08/12/Django小技巧/10.png" title="修改成功">
-<h3><span id="关于外键">关于外键</span></h3><p>从<code>Django2.0</code>版本开始，在类模型中，定义外键和一对一关系字段时需要添加 <code>on_delete</code> 参数，不然会报错：<code>__init__() missing 1 required positional argument: &#39;on_delete&#39;</code>。</p>
+<h3 id="关于外键"><a href="#关于外键" class="headerlink" title="关于外键"></a>关于外键</h3><p>从<code>Django2.0</code>版本开始，在类模型中，定义外键和一对一关系字段时需要添加 <code>on_delete</code> 参数，不然会报错：<code>__init__() missing 1 required positional argument: &#39;on_delete&#39;</code>。</p>
 <p><img src="/2018/08/12/Django小技巧/01.png" alt="&#39;多对多关系字段无须添加&#39;"></p>
-<h3><span id="后台显示中文应用名-类名与字段名">后台显示中文应用名、类名与字段名</span></h3><p>如何登陆<code>Django</code>后台?  <a href="https://bluemrd.github.io/2018/08/12/%E6%90%AD%E5%BB%BADjango2-1/" target="_blank" rel="noopener">Django后台登录</a></p>
+<h3 id="后台显示中文应用名、类名与字段名"><a href="#后台显示中文应用名、类名与字段名" class="headerlink" title="后台显示中文应用名、类名与字段名"></a>后台显示中文应用名、类名与字段名</h3><p>如何登陆<code>Django</code>后台?  <a href="https://bluemrd.github.io/2018/08/12/%E6%90%AD%E5%BB%BADjango2-1/" target="_blank" rel="noopener">Django后台登录</a></p>
 <p>在添加<code>Django</code>应用后，创建超级管理员账号可以登录<code>Django</code>自带的管理后台，比如我添加了一个名为<code>blog</code>的应用，登录后台后显示为</p>
 <p><img src="/2018/08/12/Django小技巧/02.png" alt="后台显示为英文大写BLOG"></p>
 <p>现在我们来将它修改为中文显示</p>
@@ -555,36 +554,13 @@
 <p>在models.py中的model类中，通常会创建一些字段，一般会想要这些字段在后台为中文显示，方便识别。</p>
 <p>显示为中文方法很简单，在定义该字段时添加 <code>verbose_name</code> 参数即可，例如：</p>
 <img src="/2018/08/12/Django小技巧/07.png" title="字段名中文显示">
-<h3><span id="反向查询与数量统计">反向查询与数量统计</span></h3><p>我在 Django 里写了两个 <code>Model</code>，一个是 <code>Post</code>（文章），一个是 <code>Comment</code>（评论），两者是一对多关系 <code>Post</code>是<code>Comment</code> 的外键，如图：</p>
-<img src="/2018/08/12/Django小技巧/11.png" title="Post">
-
-<p>在视图中如果需要取出一篇文章的全部评论，可以这样写</p>
-<p><code>post= get_object_or_404(Post, pk=pk)</code></p>
-<p><code>comment_list = Comment.objects.filter(post=post)</code></p>
-<p>这是从所有评论中选出属于 <code>post</code> 文章的评论</p>
-<p>现在来看另一种方法，直接查询某篇文章所有属于它的评论</p>
-<p><code>post = get_object_or_404(Post, pk=pk)</code></p>
-<p><code>comment_list = post.comment_set.all()</code></p>
-<p>当然，我们一般会在文章页统计评论数，应该怎么做呢？</p>
-<p>在模板文件中使用  </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% post.comment_set.count %&#125;</span><br></pre></td></tr></table></figure>
-<p> 即可。</p>
-<p>（模型管理器<code>comment_set</code> 是一个特殊的模型管理器）还有一个<code>count</code>方法，返回数量 。</p>
-<h3><span id="模板文件-静态文件与媒体资源">模板文件、静态文件与媒体资源</span></h3><p>在 <code>Django2.1</code> 中，如果你将模板文件、静态文件与媒体资源放在应用下，则在访问资源时，会自动寻找，无须进行设置。</p>
-<p>创建文件时，文件名是固定写法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">templates   <span class="comment"># 模板文件</span></span><br><span class="line">static      <span class="comment"># 静态文件</span></span><br><span class="line">media       <span class="comment"># 媒体资源文件</span></span><br></pre></td></tr></table></figure>
-<p>例：放在应用 <code>blog</code> 下的模板文件</p>
-<img src="/2018/08/12/Django小技巧/13.png" title="blog/templates">
-<p>如果需要放在项目目录下，则需在 <code>settings.py</code>中进行设置</p>
-<p>模板文件 templates路径添加</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'BACKEND'</span>: <span class="string">'django.template.backends.django.DjangoTemplates'</span>,</span><br><span class="line">        -<span class="string">'DIRS'</span>: [],</span><br><span class="line">        +<span class="string">'DIRS'</span>: [os.path.join(BASE_DIR, <span class="string">'templates'</span>)],</span><br><span class="line">        <span class="string">'APP_DIRS'</span>: <span class="keyword">True</span>,</span><br><span class="line">        <span class="string">'OPTIONS'</span>: &#123;</span><br><span class="line">            <span class="string">'context_processors'</span>: [</span><br><span class="line">                <span class="string">'django.template.context_processors.debug'</span>,</span><br><span class="line">                <span class="string">'django.template.context_processors.request'</span>,</span><br><span class="line">                <span class="string">'django.contrib.auth.context_processors.auth'</span>,</span><br><span class="line">                <span class="string">'django.contrib.messages.context_processors.messages'</span>,</span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<img src="/2018/08/12/Django小技巧/14.png" title="djangoblog/templates">
-<p>静态文件路径添加，在 <code>settings.py</code> 中的末尾添加</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">STATIC_PATH = os.path.join(BASE_DIR, <span class="string">'static'</span>)</span><br><span class="line"></span><br><span class="line">STATICFILES_DIRS = (</span><br><span class="line">    STATIC_PATH,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>媒体资源路径添加</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MEDIA_URL = <span class="string">'/media/'</span></span><br><span class="line">MEDIA_ROOT = os.path.join(BASE_DIR, <span class="string">'media'</span>)</span><br></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/12/Django小技巧/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
