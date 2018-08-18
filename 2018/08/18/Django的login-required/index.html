@@ -156,7 +156,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/08/18/Django的login-required/02.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/18/Django的login-required/01.png">
-<meta property="og:updated_time" content="2018-08-18T05:45:45.632Z">
+<meta property="og:updated_time" content="2018-08-18T06:14:15.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django的login_required">
 <meta name="twitter:description" content="如果是使用Django内置的auth实现的登录，对于Django网站的访问者，Django后台可以通过 request.user来查看访问者的身份。 现在我实现了一个项目的登录注册功能，项目首页网址为 /， 登录成功页面为/index 其中登录由auth实现的，我注册了一个名为’老狗’的用户，现在分别在登录以及未登录时访问该网站的首页。 12345678910111213141516# 首页def">
@@ -427,7 +427,7 @@
                 
               
 
-              <time title="创建时间：2018-08-18 12:11:28 / 修改时间：13:45:45" itemprop="dateCreated datePublished" datetime="2018-08-18T12:11:28+08:00">2018-08-18</time>
+              <time title="创建时间：2018-08-18 12:11:28 / 修改时间：14:14:15" itemprop="dateCreated datePublished" datetime="2018-08-18T12:11:28+08:00">2018-08-18</time>
             
 
             
@@ -488,7 +488,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.2k</span>
+                <span title="本文字数">1.5k</span>
               
 
               
@@ -531,6 +531,11 @@
 <p>​    使用<code>django</code>自带的装饰器 <code>@login_required</code></p>
 <p>​    在相应的<code>view</code>方法的前面添加<code>@login_required</code></p>
 <p>​    并在<code>settings.py</code>中自定义配置<code>LOGIN_URL</code>参数</p>
+<p>如果想要跳转更为灵活，可以在装饰器中添加参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@login_required(login_url='/login', redirect_field_name='next')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p><code>login_url</code>就是匿名用户访问后重定向的<code>url</code>，一般都是<code>login</code>的页面  </p>
+<p><code>redirect_field_name</code>是一个<code>get</code>请求的参数  假设当前页面是<code>/user/info/</code>  </p>
+<p>那么重定向的<code>url</code>为： <code>/login/?next=/user/info/</code>  这个参数可以用于登陆后直接跳转回这个页面</p>
 
       
     </div>
