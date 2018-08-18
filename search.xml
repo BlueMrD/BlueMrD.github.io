@@ -22,7 +22,7 @@
   <entry>
     <title><![CDATA[从头开始学scrapy]]></title>
     <url>%2F2018%2F08%2F15%2F%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E5%AD%A6scrapy%2F</url>
-    <content type="text"><![CDATA[&lt;!-- toc --&gt; 创建虚拟环境参考 Python虚拟环境 Windows安装Scrapy参考 Scrapy安装 Scrapy 框架基本命令创建Scrapy项目 进入命令行，输入 1scrapy startproject '项目名' 创建spider蜘蛛 进入刚创建的Scrapy项目目录 12cd '项目名'scrapy genspider '蜘蛛名' 运行Scrapy项目 1scrapy crawl '蜘蛛名' 数据导出为json格式中文乱码问题导出为 json 格式命令 1scrapy crawl &apos;蜘蛛名&apos; -o &apos;文件名&apos;.json 导出为 csv 格式命令类似 在配置文件settings.py中添加 1FEED_EXPORT_ENCODING = 'utf-8']]></content>
+    <content type="text"><![CDATA[创建虚拟环境参考 Python虚拟环境 Windows安装Scrapy参考 Scrapy安装 Scrapy 框架基本命令创建Scrapy项目 进入命令行，输入 1scrapy startproject '项目名' 创建spider蜘蛛 进入刚创建的Scrapy项目目录 12cd '项目名'scrapy genspider '蜘蛛名' 运行Scrapy项目 1scrapy crawl '蜘蛛名' 数据导出为json格式中文乱码问题导出为 json 格式命令 1scrapy crawl &apos;蜘蛛名&apos; -o &apos;文件名&apos;.json 导出为 csv 格式命令类似 在配置文件settings.py中添加 1FEED_EXPORT_ENCODING = 'utf-8']]></content>
       <categories>
         <category>Programme</category>
       </categories>
