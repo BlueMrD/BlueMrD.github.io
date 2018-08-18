@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Django的login_required]]></title>
+    <url>%2F2018%2F08%2F18%2FDjango%E7%9A%84login-required%2F</url>
+    <content type="text"><![CDATA[如果是使用Django内置的auth实现的登录，对于Django网站的访问者，Django后台可以通过 request.user来查看访问者的身份。 现在我实现了一个项目的登录注册功能，项目首页网址为 /， 登录成功页面为/index 其中登录由auth实现的，我注册了一个名为’老狗’的用户，现在分别在登录以及未登录时访问该网站的首页。 12345678910111213141516# 首页def index(request): user = request.user # 查看访问者 print(user) if user: # 如果用户已注册并登录 if user.is_authenticated: post_list = Post.objects.all() # .order_by('-created_time') # 返回项目首页 return render(request, 'blog/index.html', context=&#123;'post_list': post_list&#125;) else: # 返回登录首页 return render(request, 'index.html', &#123;&#125;) return render(request, 'index.html') 未登录 AnonymousUser 代表匿名用户 已登录 上面的函数实现的功能：若是匿名函数，则将网页跳转到登录注册界面；若是已注册并登录的用户，则跳转到项目首页。 下面我们来使用Django内置函数login_required装饰器来实现上述功能。 1234567from django.contrib.auth.decorators import login_required# 首页@login_requireddef index(request): post_list = Post.objects.all() return render(request, 'blog/index.html', context=&#123;'post_list': post_list&#125;) 该装饰器表明该视图函数只有已登录用户才能访问，否则会跳转到其他页面，Django默认是/accounts/login/，可以在settings.py中自定义跳转页面 1LOGIN_URL = '/index' 步骤： ​ 使用django自带的装饰器 @login_required ​ 在相应的view方法的前面添加@login_required ​ 并在settings.py中自定义配置LOGIN_URL参数]]></content>
+      <categories>
+        <category>Programme</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Arcgis License Manager启动失败]]></title>
     <url>%2F2018%2F08%2F16%2FArcgis-License-Manager%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%2F</url>
     <content type="text"><![CDATA[详情参考： Arcgis License Manager启动失败]]></content>
