@@ -535,7 +535,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@login_required(login_url='/login', redirect_field_name='next')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 <p><code>login_url</code>就是匿名用户访问后重定向的<code>url</code>，一般都是<code>login</code>的页面  </p>
 <p><code>redirect_field_name</code>是一个<code>get</code>请求的参数  假设当前页面是<code>/user/info/</code>  </p>
-<p>那么重定向的<code>url</code>为： <code>/login/?next=/user/info/</code>  这个参数可以用于登陆后直接跳转回这个页面</p>
+<p>那么重定向的<code>url</code>为： <code>/login/?next=/user/info/</code>  这个参数可以用于登陆后直接跳转回这个页面 </p>
 
       
     </div>

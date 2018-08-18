@@ -504,15 +504,15 @@
 
       
         <p>因为将<code>hexo</code>部署到<code>github</code>上需要<code>ssh</code>密匙，所以特地去学习了一下如何生成，记录在此，方便下次使用。</p>
-<h3><span id="配置github账户信息">配置github账户信息</span></h3><p>在 <code>Git Bash</code> 下输入命令</p>
+<h3 id="配置github账户信息"><a href="#配置github账户信息" class="headerlink" title="配置github账户信息"></a>配置github账户信息</h3><p>在 <code>Git Bash</code> 下输入命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git config --global user.email &quot;YourName&quot;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.email &quot;YourEmail&quot;</span><br></pre></td></tr></table></figure>
 <p>其中的 <code>YourName</code> 与 <code>YourEmail</code> 都是你自己的<code>github</code>帐号与绑定邮箱。</p>
-<h3><span id="创建ssh">创建SSH</span></h3><p>若之前没有创建过<code>SSH</code>密匙，则</p>
+<h3 id="创建SSH"><a href="#创建SSH" class="headerlink" title="创建SSH"></a>创建SSH</h3><p>若之前没有创建过<code>SSH</code>密匙，则</p>
 <p>在 <code>Git Bash</code> 下输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br></pre></td></tr></table></figure>
 <p>引号的内容为邮箱地址。</p>
-<h3><span id="查看ssh密匙">查看SSH密匙</span></h3><p>如果已经生成了<code>SSH</code>密匙，可通过<code>Git Bash</code>命令进行查看</p>
+<h3 id="查看SSH密匙"><a href="#查看SSH密匙" class="headerlink" title="查看SSH密匙"></a>查看SSH密匙</h3><p>如果已经生成了<code>SSH</code>密匙，可通过<code>Git Bash</code>命令进行查看</p>
 <p>进入文件夹</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/.ssh</span><br></pre></td></tr></table></figure>
 <p>查看密匙</p>
@@ -784,7 +784,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">配置github账户信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">创建SSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">查看SSH密匙</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置github账户信息"><span class="nav-number">1.</span> <span class="nav-text">配置github账户信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建SSH"><span class="nav-number">2.</span> <span class="nav-text">创建SSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看SSH密匙"><span class="nav-number">3.</span> <span class="nav-text">查看SSH密匙</span></a></li></ol></div>
             
 
           </div>

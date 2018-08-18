@@ -532,34 +532,34 @@
       
 
       
-        <h3><span id="创建django项目">创建Django项目</span></h3><p>打开命令行，选择一个文件夹(我的直接放桌面上)，输入</p>
+        <h3 id="创建Django项目"><a href="#创建Django项目" class="headerlink" title="创建Django项目"></a>创建Django项目</h3><p>打开命令行，选择一个文件夹(我的直接放桌面上)，输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">django-admin startproject &apos;项目名称&apos;</span><br></pre></td></tr></table></figure>
 <p>例：</p>
 <img src="/2018/08/12/搭建Django2-1/01.png" title="django项目名为mysite">
 <p>文件目录列表为</p>
 <img src="/2018/08/12/搭建Django2-1/02.png" title="django项目文件目录">
-<h3><span id="创建并添加django应用">创建并添加Django应用</span></h3><p>创建应用：命令行进入刚刚的<code>django</code>项目文件夹下，输入</p>
+<h3 id="创建并添加Django应用"><a href="#创建并添加Django应用" class="headerlink" title="创建并添加Django应用"></a>创建并添加Django应用</h3><p>创建应用：命令行进入刚刚的<code>django</code>项目文件夹下，输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python mange.py startapp &apos;应用名称&apos;</span><br></pre></td></tr></table></figure>
 <p>例：</p>
 <img src="/2018/08/12/搭建Django2-1/03.png" title="应用名为blog">
 <p>添加应用：打开<code>mysite/mysite/settings.py</code>文件</p>
 <img src="/2018/08/12/搭建Django2-1/04.png" title="添加应用">
 <p>这一步相当于将应用注册到<code>django</code>中。</p>
-<h3><span id="迁移数据库">迁移数据库</span></h3><p>命令行输入</p>
+<h3 id="迁移数据库"><a href="#迁移数据库" class="headerlink" title="迁移数据库"></a>迁移数据库</h3><p>命令行输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python mange.py migrate</span><br></pre></td></tr></table></figure>
 <p>会在数据库中创建<code>Django</code>自带的数据表。</p>
 <img src="/2018/08/12/搭建Django2-1/05.png" title="迁移数据库">
-<h3><span id="创建超级用户">创建超级用户</span></h3><p>这一步是为了后面使用<code>Django</code>后台对数据进行操作，必须在迁移数据库之后才能进行。</p>
+<h3 id="创建超级用户"><a href="#创建超级用户" class="headerlink" title="创建超级用户"></a>创建超级用户</h3><p>这一步是为了后面使用<code>Django</code>后台对数据进行操作，必须在迁移数据库之后才能进行。</p>
 <p>命令行输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python mange.py createsuperuser</span><br></pre></td></tr></table></figure>
 <img src="/2018/08/12/搭建Django2-1/06.png" title="创建超级用户">
 <p>邮箱可以不输入，按<code>Enter</code>跳过，但密码并不是不输入，而是输入了也不显示。</p>
-<h3><span id="运行django">运行django</span></h3><p>命令行输入</p>
+<h3 id="运行django"><a href="#运行django" class="headerlink" title="运行django"></a>运行django</h3><p>命令行输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python mange.py runserver</span><br></pre></td></tr></table></figure>
 <img src="/2018/08/12/搭建Django2-1/07.png" title="运行项目">
 <p>网站中输入 <a href="127.0.01:8000" target="_blank" rel="noopener">127.0.01:8000</a> 即可看到项目运行成功。</p>
 <img src="/2018/08/12/搭建Django2-1/08.png" title="运行成功">
-<h3><span id="django后台登录">Django后台登录</span></h3><p>创建超级用户后，运行<code>Django</code>项目，进入网址 <a href="127.0.0.1:8000/admin" target="_blank" rel="noopener">127.0.0.1:8000/admin</a></p>
+<h3 id="Django后台登录"><a href="#Django后台登录" class="headerlink" title="Django后台登录"></a>Django后台登录</h3><p>创建超级用户后，运行<code>Django</code>项目，进入网址 <a href="127.0.0.1:8000/admin" target="_blank" rel="noopener">127.0.0.1:8000/admin</a></p>
 <img src="/2018/08/12/搭建Django2-1/09.png" title="登录admin">
 <p>登录成功</p>
 <img src="/2018/08/12/搭建Django2-1/10.png" title="admin首页">
@@ -837,7 +837,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">创建Django项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">创建并添加Django应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">迁移数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">创建超级用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">运行django</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">Django后台登录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Django项目"><span class="nav-number">1.</span> <span class="nav-text">创建Django项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建并添加Django应用"><span class="nav-number">2.</span> <span class="nav-text">创建并添加Django应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迁移数据库"><span class="nav-number">3.</span> <span class="nav-text">迁移数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建超级用户"><span class="nav-number">4.</span> <span class="nav-text">创建超级用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行django"><span class="nav-number">5.</span> <span class="nav-text">运行django</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Django后台登录"><span class="nav-number">6.</span> <span class="nav-text">Django后台登录</span></a></li></ol></div>
             
 
           </div>
