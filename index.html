@@ -381,241 +381,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/12/Django小技巧/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BlueMrD">
-      <meta itemprop="description" content="This is my blue sea.">
-      <meta itemprop="image" content="/images/Nicolas.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blue's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/12/Django小技巧/" itemprop="url">
-                  Django小技巧
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-12 23:13:52" itemprop="dateCreated datePublished" datetime="2018-08-12T23:13:52+08:00">2018-08-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-19 17:02:42" itemprop="dateModified" datetime="2018-08-19T17:02:42+08:00">2018-08-19</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/12/Django小技巧/" class="leancloud_visitors" data-flag-title="Django小技巧">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">4.7k</span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="Django项目设置中文与本地时区"><a href="#Django项目设置中文与本地时区" class="headerlink" title="Django项目设置中文与本地时区"></a>Django项目设置中文与本地时区</h3><p>在项目下的 <code>settings.py</code> 文件中进行设置，将</p>
-<img src="/2018/08/12/Django小技巧/08.png" title="地区与时间">
-<p>改为</p>
-<img src="/2018/08/12/Django小技巧/09.png" title="中文地区与时间">
-<p>运行项目打开网址即可</p>
-<img src="/2018/08/12/Django小技巧/10.png" title="修改成功">
-<h3 id="关于外键"><a href="#关于外键" class="headerlink" title="关于外键"></a>关于外键</h3><p>从<code>Django2.0</code>版本开始，在类模型中，定义外键和一对一关系字段时需要添加 <code>on_delete</code> 参数，不然会报错：<code>__init__() missing 1 required positional argument: &#39;on_delete&#39;</code>。</p>
-<p><img src="/2018/08/12/Django小技巧/01.png" alt="&#39;多对多关系字段无须添加&#39;"></p>
-<h3 id="后台显示中文应用名、类名与字段名"><a href="#后台显示中文应用名、类名与字段名" class="headerlink" title="后台显示中文应用名、类名与字段名"></a>后台显示中文应用名、类名与字段名</h3><p>如何登陆<code>Django</code>后台?  <a href="https://bluemrd.github.io/2018/08/12/%E6%90%AD%E5%BB%BADjango2-1/" target="_blank" rel="noopener">Django后台登录</a></p>
-<p>在添加<code>Django</code>应用后，创建超级管理员账号可以登录<code>Django</code>自带的管理后台，比如我添加了一个名为<code>blog</code>的应用，登录后台后显示为</p>
-<p><img src="/2018/08/12/Django小技巧/02.png" alt="后台显示为英文大写BLOG"></p>
-<p>现在我们来将它修改为中文显示</p>
-<p>在<code>Django</code>应用目录(即你添加的应用)下打开<code>apps.py</code>文件，在<code>AppNameConfig</code>类里添加两条属性即可，如图：</p>
-<img src="/2018/08/12/Django小技巧/03.png" title="应用名中文显示">
-<p>然后在<code>blog</code>应用目录下的<code>__init__.py</code>文件里添加一句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default_app_config = &apos;AppName.apps.AppNameConfig&apos;</span><br></pre></td></tr></table></figure>
-<p>即可</p>
-<p>例如在我的应用下这一句应为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default_app_config = &apos;blog.apps.BlogConfig&apos;</span><br></pre></td></tr></table></figure>
-<p>在上图中可以看到在博客应用下有三个<code>Model</code>，分别为<code>Categorys</code>，<code>Tag</code>和<code>Posts</code>，现在来改为中文显示。</p>
-<p>在定义上面三个<code>Model</code>的<code>models.py</code>文件夹里，修改对应的<code>model</code>类，如下图所示：</p>
-<img src="/2018/08/12/Django小技巧/04.png" title="添加Meta原类属性">
-<p>后面两个修改方式一样，修改之后刷新后台。</p>
-<img src="/2018/08/12/Django小技巧/05.png" title="Model名中文显示">
-<p>在此说一下 <code>verbose_name</code> 与 <code>verbose_name_plural</code> 的区别：以 <code>Categorys</code> 为例，可以看到该<code>Model</code>名后面有个 <code>&#39;s&#39;</code>，意为复数，所以如果只添加 <code>verbose_name</code> = ‘分类’， 则在后台显示会为 ‘分类s’。</p>
-<img src="/2018/08/12/Django小技巧/06.png" title="中文复数形式">
-<p>在models.py中的model类中，通常会创建一些字段，一般会想要这些字段在后台为中文显示，方便识别。</p>
-<p>显示为中文方法很简单，在定义该字段时添加 <code>verbose_name</code> 参数即可，例如：</p>
-<img src="/2018/08/12/Django小技巧/07.png" title="字段名中文显示">
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/12/Django小技巧/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-<div>
-  
-</div>
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/18/Django的login-required/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -997,6 +762,206 @@
 <img src="/2018/08/21/Scrapy-spider类传参-更换爬取网站/01.png" title="更换网址">
 <p>数据库的结果</p>
 <img src="/2018/08/21/Scrapy-spider类传参-更换爬取网站/02.png" title="数据库">
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/21/Xpath提取多标签下的所有文字-text/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BlueMrD">
+      <meta itemprop="description" content="This is my blue sea.">
+      <meta itemprop="image" content="/images/Nicolas.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blue's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/21/Xpath提取多标签下的所有文字-text/" itemprop="url">
+                  Xpath提取多标签下的所有文字(text)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-21 20:44:44 / 修改时间：21:03:10" itemprop="dateCreated datePublished" datetime="2018-08-21T20:44:44+08:00">2018-08-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programme/" itemprop="url" rel="index"><span itemprop="name">Programme</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/21/Xpath提取多标签下的所有文字-text/" class="leancloud_visitors" data-flag-title="Xpath提取多标签下的所有文字(text)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">762</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="提取方法"><a href="#提取方法" class="headerlink" title="提取方法"></a>提取方法</h3><p>昨天做 58租房 爬虫，有个标签类似于这样的</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test3"</span>&gt;</span>我左青龙，</span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"tiger"</span>&gt;</span>右白虎。<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span>上朱雀，</span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>下玄武。<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        老牛在当中，</span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>龙头在胸口。<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>好吧，其实没这么复杂。不过我只是举个例子而已。</p>
+<p>显而易见，上面 html 中的文字是一句话，可是却分别在不同的标签下，<code>Xpath</code>有个快捷的方式来实现提取。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">html = <span class="string">'''&lt;div id="test3"&gt;我左青龙，</span></span><br><span class="line"><span class="string">    &lt;span id="tiger"&gt;右白虎。&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;ul&gt;上朱雀，</span></span><br><span class="line"><span class="string">        &lt;li&gt;下玄武。&lt;/li&gt;</span></span><br><span class="line"><span class="string">    &lt;/ul&gt;</span></span><br><span class="line"><span class="string">    &lt;ul&gt;</span></span><br><span class="line"><span class="string">        老牛在当中，</span></span><br><span class="line"><span class="string">    &lt;/ul&gt;</span></span><br><span class="line"><span class="string">    &lt;span&gt;龙头在胸口。&lt;/span&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;'''</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">html = etree.HTML(html)</span><br><span class="line">data = html.xpath(<span class="string">'string(.)'</span>)</span><br></pre></td></tr></table></figure>
+<p>打印</p>
+<img src="/2018/08/21/Xpath提取多标签下的所有文字-text/01.png" title="打印结果">
+<p>去掉空格和换行美化一下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = data.replace(<span class="string">' '</span>, <span class="string">''</span>).replace(<span class="string">'\n'</span>, <span class="string">''</span>)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+<img src="/2018/08/21/Xpath提取多标签下的所有文字-text/02.png" title="结果">
 
           
         
