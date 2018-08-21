@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Scrapy spider类传参(更换爬取网站)]]></title>
+    <url>%2F2018%2F08%2F21%2FScrapy-spider%E7%B1%BB%E4%BC%A0%E5%8F%82-%E6%9B%B4%E6%8D%A2%E7%88%AC%E5%8F%96%E7%BD%91%E7%AB%99%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Xpath提取多标签下的所有文字(text)]]></title>
+    <url>%2F2018%2F08%2F21%2FXpath%E6%8F%90%E5%8F%96%E5%A4%9A%E6%A0%87%E7%AD%BE%E4%B8%8B%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E5%AD%97-text%2F</url>
+    <content type="text"><![CDATA[提取方法昨天做 58租房 爬虫，有个标签类似于这样的 12345678910&lt;div id="test3"&gt;我左青龙， &lt;span id="tiger"&gt;右白虎。&lt;/span&gt; &lt;ul&gt;上朱雀， &lt;li&gt;下玄武。&lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; 老牛在当中， &lt;/ul&gt; &lt;span&gt;龙头在胸口。&lt;/span&gt;&lt;/div&gt; 好吧，其实没这么复杂。不过我只是举个例子而已。 显而易见，上面 html 中的文字是一句话，可是却分别在不同的标签下，Xpath有个快捷的方式来实现提取。 1234567891011121314151617from lxml import etreehtml = '''&lt;div id="test3"&gt;我左青龙， &lt;span id="tiger"&gt;右白虎。&lt;/span&gt; &lt;ul&gt;上朱雀， &lt;li&gt;下玄武。&lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; 老牛在当中， &lt;/ul&gt; &lt;span&gt;龙头在胸口。&lt;/span&gt;&lt;/div&gt;'''html = etree.HTML(html)data = html.xpath('string(.)') 打印 去掉空格和换行美化一下 12data = data.replace(' ', '').replace('\n', '')print(data)]]></content>
+      <categories>
+        <category>Programme</category>
+      </categories>
+      <tags>
+        <tag>Spider</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Django2.1集成simditor编辑器]]></title>
     <url>%2F2018%2F08%2F20%2FDjango2-1%E9%9B%86%E6%88%90simditor%E7%BC%96%E8%BE%91%E5%99%A8%2F</url>
     <content type="text"><![CDATA[Django后台admin集成simditor编辑器所需依赖包12pip intall django-simditorpip install pillow 具体配置settings.py 12345678910111213141516171819202122232425262728293031323334353637import tempfileINSTALLED_APPS = [ &apos;django.contrib.admin&apos;, &apos;django.contrib.auth&apos;, &apos;django.contrib.contenttypes&apos;, &apos;django.contrib.sessions&apos;, &apos;django.contrib.messages&apos;, &apos;django.contrib.staticfiles&apos;, &apos;simditor&apos;]# 这两句必须添加，否则运行时会报错，官方文档没有说明MEDIA_URL = &apos;/media/&apos;MEDIA_ROOT = os.path.join(tempfile.gettempdir(), &apos;sm_media&apos;)SIMDITOR_UPLOAD_PATH = &apos;uploads/&apos;SIMDITOR_IMAGE_BACKEND = &apos;pillow&apos;SIMDITOR_TOOLBAR = [ &apos;title&apos;, &apos;bold&apos;, &apos;italic&apos;, &apos;underline&apos;, &apos;strikethrough&apos;, &apos;fontScale&apos;, &apos;color&apos;, &apos;|&apos;, &apos;ol&apos;, &apos;ul&apos;, &apos;blockquote&apos;, &apos;code&apos;, &apos;table&apos;, &apos;|&apos;, &apos;link&apos;, &apos;image&apos;, &apos;hr&apos;, &apos;|&apos;, &apos;indent&apos;, &apos;outdent&apos;, &apos;alignment&apos;, &apos;fullscreen&apos;, &apos;markdown&apos;, &apos;emoji&apos;]SIMDITOR_CONFIGS = &#123; &apos;toolbar&apos;: SIMDITOR_TOOLBAR, &apos;upload&apos;: &#123; &apos;url&apos;: &apos;/simditor/upload/&apos;, &apos;fileKey&apos;: &apos;upload&apos; &#125;, &apos;emoji&apos;: &#123; &apos;imagePath&apos;: &apos;/static/simditor/images/emoji/&apos; &#125;&#125; 使用方法12# 创建应用apppython manage.py startapp blog settings.py 1234567891011INSTALLED_APPS = [ 'django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', 'simditor', 'blog',] models.py 1234567891011from django.db import modelsfrom simditor.fields import RichTextFieldclass Post(models.Model): title = models.CharField(verbose_name=&apos;标题&apos;, max_length=50) content = RichTextField(verbose_name=&apos;内容&apos;) class Meta: verbose_name = &apos;文章&apos; verbose_name_plural = verbose_name admin.py 1234567from django.contrib import adminfrom .models import Post# Register your models here.admin.site.register(Post) 迁移数据库 12python manage.py makemigrationspython manage.py migrate 运行项目 1python manage.py runserver 登录后台]]></content>
