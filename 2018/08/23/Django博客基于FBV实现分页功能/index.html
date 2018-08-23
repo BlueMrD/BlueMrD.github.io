@@ -146,21 +146,23 @@
 
 
 
-  <meta name="description" content="提取方法昨天做 58租房 爬虫，有个标签类似于这样的 12345678910&amp;lt;div id=&quot;test3&quot;&amp;gt;我左青龙，    &amp;lt;span id=&quot;tiger&quot;&amp;gt;右白虎。&amp;lt;/span&amp;gt;    &amp;lt;ul&amp;gt;上朱雀，        &amp;lt;li&amp;gt;下玄武。&amp;lt;/li&amp;gt;    &amp;lt;/ul&amp;gt;    &amp;lt;ul&amp;gt;        老牛在">
-<meta name="keywords" content="Spider">
+  <meta name="description" content="本文的博客项目搭建基于追梦人物的博客教程，我的项目是将前面两个教程结合起来写的一个博客。 本文来谈谈如何基于 Django的FBV来实现教程里的分页功能 分析代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364">
+<meta name="keywords" content="Django">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Xpath提取多标签下的所有文字(text)">
-<meta property="og:url" content="http://yoursite.com/2018/08/21/Xpath提取多标签下的所有文字-text/index.html">
+<meta property="og:title" content="Django博客基于FBV实现分页功能">
+<meta property="og:url" content="http://yoursite.com/2018/08/23/Django博客基于FBV实现分页功能/index.html">
 <meta property="og:site_name" content="Blue&#39;s blog">
-<meta property="og:description" content="提取方法昨天做 58租房 爬虫，有个标签类似于这样的 12345678910&amp;lt;div id=&quot;test3&quot;&amp;gt;我左青龙，    &amp;lt;span id=&quot;tiger&quot;&amp;gt;右白虎。&amp;lt;/span&amp;gt;    &amp;lt;ul&amp;gt;上朱雀，        &amp;lt;li&amp;gt;下玄武。&amp;lt;/li&amp;gt;    &amp;lt;/ul&amp;gt;    &amp;lt;ul&amp;gt;        老牛在">
+<meta property="og:description" content="本文的博客项目搭建基于追梦人物的博客教程，我的项目是将前面两个教程结合起来写的一个博客。 本文来谈谈如何基于 Django的FBV来实现教程里的分页功能 分析代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/08/21/Xpath提取多标签下的所有文字-text/01.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/21/Xpath提取多标签下的所有文字-text/02.png">
-<meta property="og:updated_time" content="2018-08-21T13:03:10.725Z">
+<meta property="og:image" content="http://yoursite.com/2018/08/23/Django博客基于FBV实现分页功能/01.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/23/Django博客基于FBV实现分页功能/02.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/23/Django博客基于FBV实现分页功能/03.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/23/Django博客基于FBV实现分页功能/04.png">
+<meta property="og:updated_time" content="2018-08-23T11:50:38.429Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xpath提取多标签下的所有文字(text)">
-<meta name="twitter:description" content="提取方法昨天做 58租房 爬虫，有个标签类似于这样的 12345678910&amp;lt;div id=&quot;test3&quot;&amp;gt;我左青龙，    &amp;lt;span id=&quot;tiger&quot;&amp;gt;右白虎。&amp;lt;/span&amp;gt;    &amp;lt;ul&amp;gt;上朱雀，        &amp;lt;li&amp;gt;下玄武。&amp;lt;/li&amp;gt;    &amp;lt;/ul&amp;gt;    &amp;lt;ul&amp;gt;        老牛在">
-<meta name="twitter:image" content="http://yoursite.com/2018/08/21/Xpath提取多标签下的所有文字-text/01.png">
+<meta name="twitter:title" content="Django博客基于FBV实现分页功能">
+<meta name="twitter:description" content="本文的博客项目搭建基于追梦人物的博客教程，我的项目是将前面两个教程结合起来写的一个博客。 本文来谈谈如何基于 Django的FBV来实现教程里的分页功能 分析代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/23/Django博客基于FBV实现分页功能/01.png">
 
 
 
@@ -169,7 +171,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/21/Xpath提取多标签下的所有文字-text/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/23/Django博客基于FBV实现分页功能/"/>
 
 
 
@@ -179,7 +181,7 @@
   };
 </script>
 
-  <title>Xpath提取多标签下的所有文字(text) | Blue's blog</title>
+  <title>Django博客基于FBV实现分页功能 | Blue's blog</title>
   
 
 
@@ -385,7 +387,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/21/Xpath提取多标签下的所有文字-text/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/Django博客基于FBV实现分页功能/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BlueMrD">
@@ -402,7 +404,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Xpath提取多标签下的所有文字(text)
+          <h1 class="post-title" itemprop="name headline">Django博客基于FBV实现分页功能
               
             
           </h1>
@@ -427,7 +429,7 @@
                 
               
 
-              <time title="创建时间：2018-08-21 20:44:44 / 修改时间：21:03:10" itemprop="dateCreated datePublished" datetime="2018-08-21T20:44:44+08:00">2018-08-21</time>
+              <time title="创建时间：2018-08-23 17:00:50 / 修改时间：19:50:38" itemprop="dateCreated datePublished" datetime="2018-08-23T17:00:50+08:00">2018-08-23</time>
             
 
             
@@ -463,7 +465,7 @@
 
           
           
-             <span id="/2018/08/21/Xpath提取多标签下的所有文字-text/" class="leancloud_visitors" data-flag-title="Xpath提取多标签下的所有文字(text)">
+             <span id="/2018/08/23/Django博客基于FBV实现分页功能/" class="leancloud_visitors" data-flag-title="Django博客基于FBV实现分页功能">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -488,7 +490,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">762</span>
+                <span title="本文字数">7.3k</span>
               
 
               
@@ -512,16 +514,22 @@
       
 
       
-        <h3 id="提取方法"><a href="#提取方法" class="headerlink" title="提取方法"></a>提取方法</h3><p>昨天做 58租房 爬虫，有个标签类似于这样的</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test3"</span>&gt;</span>我左青龙，</span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"tiger"</span>&gt;</span>右白虎。<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span>上朱雀，</span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>下玄武。<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        老牛在当中，</span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>龙头在胸口。<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>好吧，其实没这么复杂。不过我只是举个例子而已。</p>
-<p>显而易见，上面 html 中的文字是一句话，可是却分别在不同的标签下，<code>Xpath</code>有个快捷的方式来实现提取。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">html = <span class="string">'''&lt;div id="test3"&gt;我左青龙，</span></span><br><span class="line"><span class="string">    &lt;span id="tiger"&gt;右白虎。&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;ul&gt;上朱雀，</span></span><br><span class="line"><span class="string">        &lt;li&gt;下玄武。&lt;/li&gt;</span></span><br><span class="line"><span class="string">    &lt;/ul&gt;</span></span><br><span class="line"><span class="string">    &lt;ul&gt;</span></span><br><span class="line"><span class="string">        老牛在当中，</span></span><br><span class="line"><span class="string">    &lt;/ul&gt;</span></span><br><span class="line"><span class="string">    &lt;span&gt;龙头在胸口。&lt;/span&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;'''</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">html = etree.HTML(html)</span><br><span class="line">data = html.xpath(<span class="string">'string(.)'</span>)</span><br></pre></td></tr></table></figure>
-<p>打印</p>
-<img src="/2018/08/21/Xpath提取多标签下的所有文字-text/01.png" title="打印结果">
-<p>去掉空格和换行美化一下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = data.replace(<span class="string">' '</span>, <span class="string">''</span>).replace(<span class="string">'\n'</span>, <span class="string">''</span>)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
-<img src="/2018/08/21/Xpath提取多标签下的所有文字-text/02.png" title="结果">
+        <p>本文的博客项目搭建基于<a href="https://www.zmrenwu.com/tutorials/" target="_blank" rel="noopener">追梦人物的博客教程</a>，我的项目是将前面两个教程结合起来写的一个博客。</p>
+<p>本文来谈谈如何基于 <code>Django</code>的<code>FBV</code>来实现教程里的分页功能</p>
+<h3 id="分析代码"><a href="#分析代码" class="headerlink" title="分析代码"></a>分析代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br></pre></td><td class="code"><pre><span class="line">blog/views.py</span><br><span class="line"></span><br><span class="line">class IndexView(ListView):</span><br><span class="line">    model = Post</span><br><span class="line">    template_name = &apos;blog/index.html&apos;</span><br><span class="line">    context_object_name = &apos;post_list&apos;</span><br><span class="line">    paginate_by = 10</span><br><span class="line"></span><br><span class="line">    def get_context_data(self, **kwargs):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        在视图函数中将模板变量传递给模板是通过给 render 函数的 context 参数传递一个字典实现的，</span><br><span class="line">        例如 render(request, &apos;blog/index.html&apos;, context=&#123;&apos;post_list&apos;: post_list&#125;)，</span><br><span class="line">        这里传递了一个 &#123;&apos;post_list&apos;: post_list&#125; 字典给模板。</span><br><span class="line">        在类视图中，这个需要传递的模板变量字典是通过 get_context_data 获得的，</span><br><span class="line">        所以我们复写该方法，以便我们能够自己再插入一些我们自定义的模板变量进去。</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">        # 首先获得父类生成的传递给模板的字典。</span><br><span class="line">        context = super().get_context_data(**kwargs)</span><br><span class="line"></span><br><span class="line">        # 父类生成的字典中已有 paginator、page_obj、is_paginated 这三个模板变量，</span><br><span class="line">        # paginator 是 Paginator 的一个实例，</span><br><span class="line">        # page_obj 是 Page 的一个实例，</span><br><span class="line">        # is_paginated 是一个布尔变量，用于指示是否已分页。</span><br><span class="line">        # 例如如果规定每页 10 个数据，而本身只有 5 个数据，其实就用不着分页，此时 is_paginated=False。</span><br><span class="line">        # 关于什么是 Paginator，Page 类在 Django Pagination 简单分页：http://zmrenwu.com/post/34/ 中已有详细说明。</span><br><span class="line">        # 由于 context 是一个字典，所以调用 get 方法从中取出某个键对应的值。</span><br><span class="line">        paginator = context.get(&apos;paginator&apos;)</span><br><span class="line">        page = context.get(&apos;page_obj&apos;)</span><br><span class="line">        is_paginated = context.get(&apos;is_paginated&apos;)</span><br><span class="line"></span><br><span class="line">        # 调用自己写的 pagination_data 方法获得显示分页导航条需要的数据，见下方。</span><br><span class="line">        pagination_data = self.pagination_data(paginator, page, is_paginated)</span><br><span class="line"></span><br><span class="line">        # 将分页导航条的模板变量更新到 context 中，注意 pagination_data 方法返回的也是一个字典。</span><br><span class="line">        context.update(pagination_data)</span><br><span class="line"></span><br><span class="line">        # 将更新后的 context 返回，以便 ListView 使用这个字典中的模板变量去渲染模板。</span><br><span class="line">        # 注意此时 context 字典中已有了显示分页导航条所需的数据。</span><br><span class="line">        return context</span><br><span class="line"></span><br><span class="line">    def pagination_data(self, paginator, page, is_paginated):</span><br><span class="line">        if not is_paginated:</span><br><span class="line">            # 如果没有分页，则无需显示分页导航条，不用任何分页导航条的数据，因此返回一个空的字典</span><br><span class="line">            return &#123;&#125;</span><br><span class="line"></span><br><span class="line">        # 当前页左边连续的页码号，初始值为空</span><br><span class="line">        left = []</span><br><span class="line"></span><br><span class="line">        # 当前页右边连续的页码号，初始值为空</span><br><span class="line">        right = []</span><br><span class="line"></span><br><span class="line">        # 标示第 1 页页码后是否需要显示省略号</span><br><span class="line">        left_has_more = False</span><br><span class="line"></span><br><span class="line">        # 标示最后一页页码前是否需要显示省略号</span><br><span class="line">        right_has_more = False</span><br><span class="line"></span><br><span class="line">        # 标示是否需要显示第 1 页的页码号。</span><br><span class="line">        # 因为如果当前页左边的连续页码号中已经含有第 1 页的页码号，此时就无需再显示第 1 页的页码号，</span><br><span class="line">        # 其它情况下第一页的页码是始终需要显示的。</span><br><span class="line">        # 初始值为 False</span><br><span class="line">        first = False</span><br><span class="line"></span><br><span class="line">        # 标示是否需要显示最后一页的页码号。</span><br><span class="line">        # 需要此指示变量的理由和上面相同。</span><br><span class="line">        last = False</span><br><span class="line"></span><br><span class="line">        # 获得用户当前请求的页码号</span><br><span class="line">        page_number = page.number</span><br><span class="line"></span><br><span class="line">        # 获得分页后的总页数</span><br><span class="line">        total_pages = paginator.num_pages</span><br><span class="line"></span><br><span class="line">        # 获得整个分页页码列表，比如分了四页，那么就是 [1, 2, 3, 4]</span><br><span class="line">        page_range = paginator.page_range</span><br><span class="line"></span><br><span class="line">        if page_number == 1:</span><br><span class="line">            # 如果用户请求的是第一页的数据，那么当前页左边的不需要数据，因此 left=[]（已默认为空）。</span><br><span class="line">            # 此时只要获取当前页右边的连续页码号，</span><br><span class="line">            # 比如分页页码列表是 [1, 2, 3, 4]，那么获取的就是 right = [2, 3]。</span><br><span class="line">            # 注意这里只获取了当前页码后连续两个页码，你可以更改这个数字以获取更多页码。</span><br><span class="line">            right = page_range[page_number:page_number + 2]</span><br><span class="line"></span><br><span class="line">            # 如果最右边的页码号比最后一页的页码号减去 1 还要小，</span><br><span class="line">            # 说明最右边的页码号和最后一页的页码号之间还有其它页码，因此需要显示省略号，通过 right_has_more 来指示。</span><br><span class="line">            if right[-1] &lt; total_pages - 1:</span><br><span class="line">                right_has_more = True</span><br><span class="line"></span><br><span class="line">            # 如果最右边的页码号比最后一页的页码号小，说明当前页右边的连续页码号中不包含最后一页的页码</span><br><span class="line">            # 所以需要显示最后一页的页码号，通过 last 来指示</span><br><span class="line">            if right[-1] &lt; total_pages:</span><br><span class="line">                last = True</span><br><span class="line"></span><br><span class="line">        elif page_number == total_pages:</span><br><span class="line">            # 如果用户请求的是最后一页的数据，那么当前页右边就不需要数据，因此 right=[]（已默认为空），</span><br><span class="line">            # 此时只要获取当前页左边的连续页码号。</span><br><span class="line">            # 比如分页页码列表是 [1, 2, 3, 4]，那么获取的就是 left = [2, 3]</span><br><span class="line">            # 这里只获取了当前页码后连续两个页码，你可以更改这个数字以获取更多页码。</span><br><span class="line">            left = page_range[(page_number - 3) if (page_number - 3) &gt; 0 else 0:page_number - 1]</span><br><span class="line"></span><br><span class="line">            # 如果最左边的页码号比第 2 页页码号还大，</span><br><span class="line">            # 说明最左边的页码号和第 1 页的页码号之间还有其它页码，因此需要显示省略号，通过 left_has_more 来指示。</span><br><span class="line">            if left[0] &gt; 2:</span><br><span class="line">                left_has_more = True</span><br><span class="line"></span><br><span class="line">            # 如果最左边的页码号比第 1 页的页码号大，说明当前页左边的连续页码号中不包含第一页的页码，</span><br><span class="line">            # 所以需要显示第一页的页码号，通过 first 来指示</span><br><span class="line">            if left[0] &gt; 1:</span><br><span class="line">                first = True</span><br><span class="line">        else:</span><br><span class="line">            # 用户请求的既不是最后一页，也不是第 1 页，则需要获取当前页左右两边的连续页码号，</span><br><span class="line">            # 这里只获取了当前页码前后连续两个页码，你可以更改这个数字以获取更多页码。</span><br><span class="line">            left = page_range[(page_number - 3) if (page_number - 3) &gt; 0 else 0:page_number - 1]</span><br><span class="line">            right = page_range[page_number:page_number + 2]</span><br><span class="line"></span><br><span class="line">            # 是否需要显示最后一页和最后一页前的省略号</span><br><span class="line">            if right[-1] &lt; total_pages - 1:</span><br><span class="line">                right_has_more = True</span><br><span class="line">            if right[-1] &lt; total_pages:</span><br><span class="line">                last = True</span><br><span class="line"></span><br><span class="line">            # 是否需要显示第 1 页和第 1 页后的省略号</span><br><span class="line">            if left[0] &gt; 2:</span><br><span class="line">                left_has_more = True</span><br><span class="line">            if left[0] &gt; 1:</span><br><span class="line">                first = True</span><br><span class="line"></span><br><span class="line">        data = &#123;</span><br><span class="line">            &apos;left&apos;: left,</span><br><span class="line">            &apos;right&apos;: right,</span><br><span class="line">            &apos;left_has_more&apos;: left_has_more,</span><br><span class="line">            &apos;right_has_more&apos;: right_has_more,</span><br><span class="line">            &apos;first&apos;: first,</span><br><span class="line">            &apos;last&apos;: last,</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return data</span><br></pre></td></tr></table></figure>
+<p>这是教程里基于<code>CBV</code>实现分页功能的代码。</p>
+<p>分析上述代码，我们可以自己写一个函数实现分页功能</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.core.paginator <span class="keyword">import</span> Paginator, PageNotAnInteger, EmptyPage</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_page_data</span><span class="params">(obj_list, page)</span>:</span></span><br><span class="line">    <span class="comment"># 定义 paginator</span></span><br><span class="line">    paginator = Paginator(obj_list, <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        post = paginator.page(page)</span><br><span class="line">    <span class="keyword">except</span> PageNotAnInteger:</span><br><span class="line">        post = paginator.page(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">except</span> EmptyPage:</span><br><span class="line">        post = paginator.page(paginator.num_pages)</span><br><span class="line"></span><br><span class="line">    left = []</span><br><span class="line">    </span><br><span class="line">    right = []</span><br><span class="line"></span><br><span class="line">    left_has_more = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">    right_has_more = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">    first = <span class="keyword">False</span></span><br><span class="line">    </span><br><span class="line">    last = <span class="keyword">False</span></span><br><span class="line">	</span><br><span class="line">     <span class="comment"># 这里的 page_number 需自定义</span></span><br><span class="line">    page_number = int(page)</span><br><span class="line"></span><br><span class="line">    total_pages = paginator.num_pages</span><br><span class="line">	</span><br><span class="line">    <span class="comment"># 这里的 is_paginated 需自定义，类视图函数里的方法里已经实现，无须定义</span></span><br><span class="line">    is_paginated = bool(total_pages &gt; <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    page_range = paginator.page_range</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> page_number == <span class="number">1</span>:</span><br><span class="line">        right = page_range[page_number:page_number + <span class="number">2</span>]</span><br><span class="line">        <span class="keyword">if</span> right[<span class="number">-1</span>] &lt; total_pages - <span class="number">1</span>:</span><br><span class="line">            right_has_more = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> right[<span class="number">-1</span>] &lt; total_pages:</span><br><span class="line">            last = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">elif</span> page_number == total_pages:</span><br><span class="line">        left = page_range[(page_number - <span class="number">3</span>) <span class="keyword">if</span> (page_number - <span class="number">3</span>) &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span>:page_number - <span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> left[<span class="number">0</span>] &gt; <span class="number">2</span>:</span><br><span class="line">            left_has_more = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> left[<span class="number">0</span>] &gt; <span class="number">1</span>:</span><br><span class="line">            first = <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        left = page_range[(page_number - <span class="number">3</span>) <span class="keyword">if</span> (page_number - <span class="number">3</span>) &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span>:page_number - <span class="number">1</span>]</span><br><span class="line">        right = page_range[page_number:page_number + <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> right[<span class="number">-1</span>] &lt; total_pages - <span class="number">1</span>:</span><br><span class="line">            right_has_more = <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">if</span> right[<span class="number">-1</span>] &lt; total_pages:</span><br><span class="line">            last = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> left[<span class="number">0</span>] &gt; <span class="number">2</span>:</span><br><span class="line">            left_has_more = <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">if</span> left[<span class="number">0</span>] &gt; <span class="number">1</span>:</span><br><span class="line">            first = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">'is_paginated'</span>: is_paginated,</span><br><span class="line">        <span class="string">'post'</span>: post,</span><br><span class="line">        <span class="string">'left'</span>: left,</span><br><span class="line">        <span class="string">'right'</span>: right,</span><br><span class="line">        <span class="string">'left_has_more'</span>: left_has_more,</span><br><span class="line">        <span class="string">'right_has_more'</span>: right_has_more,</span><br><span class="line">        <span class="string">'first'</span>: first,</span><br><span class="line">        <span class="string">'last'</span>: last,</span><br><span class="line">        <span class="string">'paginator'</span>: paginator,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+<p>上面三个有注释的参数在基于 <code>CBV</code> 来实现分页时，类方法 <code>get_context_data(self, **kwargs)</code>返回的对象中已经包含有，但是基于 <code>FBV</code> 时需要自己定义才行，而其他地方几乎没有改动。</p>
+<p>为什么要单独写成函数而不是写在视图函数下呢？ </p>
+<p>原因有两个：</p>
+<p>​    一是因为代码有点多，所有抽象出来，方便使用。</p>
+<p>​    二是不仅一个视图函数里需要实现分页功能，所以抽象出来封装成函数更加方便。</p>
+<p>我将这个函数写入了 <code>blog/pagetor.py</code> 中，然后在<code>blog/views</code>中导入该函数。</p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><img src="/2018/08/23/Django博客基于FBV实现分页功能/01.png" title="分页">
+<img src="/2018/08/23/Django博客基于FBV实现分页功能/02.png" title="函数">
+<img src="/2018/08/23/Django博客基于FBV实现分页功能/03.png" title="模板中的使用">
+<img src="/2018/08/23/Django博客基于FBV实现分页功能/04.png" title="博客首页">
 
       
     </div>
@@ -584,7 +592,7 @@
     <strong>本文作者： </strong>BlueMrD</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2018/08/21/Xpath提取多标签下的所有文字-text/" title="Xpath提取多标签下的所有文字(text)">http://yoursite.com/2018/08/21/Xpath提取多标签下的所有文字-text/</a>
+    <a href="http://yoursite.com/2018/08/23/Django博客基于FBV实现分页功能/" title="Django博客基于FBV实现分页功能">http://yoursite.com/2018/08/23/Django博客基于FBV实现分页功能/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -597,7 +605,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Spider/" rel="tag"><i class="fa fa-tag"></i> Spider</a>
+            <a href="/tags/Django/" rel="tag"><i class="fa fa-tag"></i> Django</a>
           
         </div>
       
@@ -610,8 +618,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/20/Django2-1集成simditor编辑器/" rel="next" title="Django2.1集成simditor编辑器">
-                <i class="fa fa-chevron-left"></i> Django2.1集成simditor编辑器
+              <a href="/2018/08/22/Scrapy调试方法/" rel="next" title="Scrapy调试方法">
+                <i class="fa fa-chevron-left"></i> Scrapy调试方法
               </a>
             
           </div>
@@ -619,10 +627,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/21/Scrapy-spider类传参-更换爬取网站/" rel="prev" title="Scrapy spider类传参(更换爬取网站)">
-                Scrapy spider类传参(更换爬取网站) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -794,7 +798,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#提取方法"><span class="nav-number">1.</span> <span class="nav-text">提取方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析代码"><span class="nav-number">1.</span> <span class="nav-text">分析代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法"><span class="nav-number">2.</span> <span class="nav-text">使用方法</span></a></li></ol></div>
             
 
           </div>
