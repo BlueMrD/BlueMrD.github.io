@@ -381,6 +381,203 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/Git生成SSH密匙/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BlueMrD">
+      <meta itemprop="description" content="This is my blue sea.">
+      <meta itemprop="image" content="/images/Nicolas.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blue's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/14/Git生成SSH密匙/" itemprop="url">
+                  Git生成SSH密匙
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-14 01:09:40" itemprop="dateCreated datePublished" datetime="2018-08-14T01:09:40+08:00">2018-08-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-15 22:28:36" itemprop="dateModified" datetime="2018-08-15T22:28:36+08:00">2018-08-15</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/14/Git生成SSH密匙/" class="leancloud_visitors" data-flag-title="Git生成SSH密匙">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">425</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>因为将<code>hexo</code>部署到<code>github</code>上需要<code>ssh</code>密匙，所以特地去学习了一下如何生成，记录在此，方便下次使用。</p>
+<h3 id="配置github账户信息"><a href="#配置github账户信息" class="headerlink" title="配置github账户信息"></a>配置github账户信息</h3><p>在 <code>Git Bash</code> 下输入命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git config --global user.email &quot;YourName&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.email &quot;YourEmail&quot;</span><br></pre></td></tr></table></figure>
+<p>其中的 <code>YourName</code> 与 <code>YourEmail</code> 都是你自己的<code>github</code>帐号与绑定邮箱。</p>
+<h3 id="创建SSH"><a href="#创建SSH" class="headerlink" title="创建SSH"></a>创建SSH</h3><p>若之前没有创建过<code>SSH</code>密匙，则</p>
+<p>在 <code>Git Bash</code> 下输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br></pre></td></tr></table></figure>
+<p>引号的内容为邮箱地址。</p>
+<h3 id="查看SSH密匙"><a href="#查看SSH密匙" class="headerlink" title="查看SSH密匙"></a>查看SSH密匙</h3><p>如果已经生成了<code>SSH</code>密匙，可通过<code>Git Bash</code>命令进行查看</p>
+<p>进入文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/.ssh</span><br></pre></td></tr></table></figure>
+<p>查看密匙</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat id_rsa.pub</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/12/搭建Django2-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -840,223 +1037,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/06/Hexo搭建博客错误解决/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BlueMrD">
-      <meta itemprop="description" content="This is my blue sea.">
-      <meta itemprop="image" content="/images/Nicolas.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blue's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/06/Hexo搭建博客错误解决/" itemprop="url">
-                  Hexo搭建博客错误解决
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-06 18:07:01" itemprop="dateCreated datePublished" datetime="2018-08-06T18:07:01+08:00">2018-08-06</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-16 12:06:23" itemprop="dateModified" datetime="2018-08-16T12:06:23+08:00">2018-08-16</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/06/Hexo搭建博客错误解决/" class="leancloud_visitors" data-flag-title="Hexo搭建博客错误解决">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">2.1k</span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>使用<code>hexo</code>搭建个人博客的过程中碰到了好多的坑，现在一一填上。</p>
-<p><code>hexo</code>的下载安装可参考  <a href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html" target="_blank" rel="noopener">hexo安装</a></p>
-<h2 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 创建文章</span><br><span class="line">$ hexo new &apos;xxx&apos;</span><br><span class="line"></span><br><span class="line"># 创建标签</span><br><span class="line">$ hexo new page tags</span><br><span class="line"></span><br><span class="line"># 创建分类</span><br><span class="line">$ hexo new page categories</span><br><span class="line"></span><br><span class="line"># 调试命令</span><br><span class="line">$ hexo s  ## hexo s -p 5000 更换端口</span><br></pre></td></tr></table></figure>
-<h2 id="在文章中插图片"><a href="#在文章中插图片" class="headerlink" title="在文章中插图片"></a>在文章中插图片</h2><p>必须配置：</p>
-<p>1 把主页配置文件<code>_config.yml</code> 里的<code>post_asset_folder:</code>这个选项设置为<code>true</code></p>
-<p>2 在你的hexo目录下执行这样一句话<code>npm install hexo-asset-image --save</code>，这是下载安装一个可以上传本地图片的插件。</p>
-<p>3 运行<code>hexo n &quot;xxxx&quot;</code>来生成md博文时，<code>/source/_posts</code>文件夹内除了<code>xxxx.md</code>文件还有一个<strong>同名的文件夹</strong>。</p>
-<p>两种方法：</p>
-<p>1 使用<code>Markdown</code> 语法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![对该图片的描述](同名文件夹名/图片名.jpg)</span><br></pre></td></tr></table></figure>
-<p>2 使用<code>hexo</code>自带插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img 图片名.png/jpg 对图片的描述写在这哦 %&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="github仓库名必须与github用户名一致"><a href="#github仓库名必须与github用户名一致" class="headerlink" title="github仓库名必须与github用户名一致"></a>github仓库名必须与github用户名一致</h2><img src="/2018/08/06/Hexo搭建博客错误解决/01.png" title="这是我的github仓库">
-<h2 id="使用-hexo-s-时本地不显示博客内容，而显示-cannot-get-xxx"><a href="#使用-hexo-s-时本地不显示博客内容，而显示-cannot-get-xxx" class="headerlink" title="使用 hexo s 时本地不显示博客内容，而显示 cannot get/xxx"></a>使用 hexo s 时本地不显示博客内容，而显示 cannot get/xxx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s -p 5000</span><br></pre></td></tr></table></figure>
-<p>换个端口即可。</p>
-<h2 id="设置语言为中文"><a href="#设置语言为中文" class="headerlink" title="设置语言为中文"></a>设置语言为中文</h2><p>我最开始按照网站教程在站点配置文件<code>_config.yml</code>下的设置语言为中文</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language: zh-Hans</span><br></pre></td></tr></table></figure>
-<p>然而本地网站并没有换成中文。</p>
-<p>因为在<code>hexo</code>的新版本中被更换了，改成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language: zh-CN</span><br></pre></td></tr></table></figure>
-<p>即可。</p>
-<h2 id="配置LeanCloud，将阅读人数替换为热度"><a href="#配置LeanCloud，将阅读人数替换为热度" class="headerlink" title="配置LeanCloud，将阅读人数替换为热度"></a>配置LeanCloud，将阅读人数替换为热度</h2><p>参考：</p>
-<p><a href="https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud" target="_blank" rel="noopener">配置LeanCloud</a></p>
-<p>然而进入文章会出现这样的错误 <code>&quot;Counter not initialized! See more at console err msg&quot;</code></p>
-<img src="/2018/08/06/Hexo搭建博客错误解决/02.png" title="配置热度报错">
-<p>解决方法参考：<a href="https://leaferx.online/2018/02/11/lc-security/" target="_blank" rel="noopener">LearnCloud报错解决</a></p>
-<h2 id="添加阅读时长和本文字数"><a href="#添加阅读时长和本文字数" class="headerlink" title="添加阅读时长和本文字数"></a>添加阅读时长和本文字数</h2><h3 id="博文压缩"><a href="#博文压缩" class="headerlink" title="博文压缩"></a>博文压缩</h3><p>安装 <code>gulp</code>以及依赖包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save-dev babel-cli</span><br><span class="line">$ npm install --save-dev babel-preset-es2015</span><br><span class="line">$ npm install gulp-minify-css gulp-babel gulp-uglify gulp-htmlmin gulp-htmlclean --save-dev</span><br></pre></td></tr></table></figure>
-<p>在博客的根目录创建新文件 <code>gulpfile.js</code>，添加如下代码</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> minifycss = <span class="built_in">require</span>(<span class="string">'gulp-minify-css'</span>);</span><br><span class="line"><span class="keyword">var</span> babel = <span class="built_in">require</span>(<span class="string">'gulp-babel'</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">'gulp-htmlmin'</span>);</span><br><span class="line"><span class="keyword">var</span> htmlclean = <span class="built_in">require</span>(<span class="string">'gulp-htmlclean'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'minify-css'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> gulp.src(<span class="string">'./public/**/*.css'</span>)</span><br><span class="line">.pipe(minifycss())</span><br><span class="line">.pipe(gulp.dest(<span class="string">'./public'</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'minify-html'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> gulp.src(<span class="string">'./public/**/*.html'</span>)</span><br><span class="line">.pipe(htmlclean())</span><br><span class="line">.pipe(htmlmin(&#123;</span><br><span class="line">removeComments: <span class="literal">true</span>,</span><br><span class="line">minifyJS: <span class="literal">true</span>,</span><br><span class="line">minifyCSS: <span class="literal">true</span>,</span><br><span class="line">minifyURLs: <span class="literal">true</span>,</span><br><span class="line">&#125;))</span><br><span class="line"></span><br><span class="line">.pipe(gulp.dest(<span class="string">'./public'</span>))</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'minify-js'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> gulp.src([<span class="string">'./public/**/*.js'</span>, <span class="string">'!./public/**/*.min.js'</span>])</span><br><span class="line">.pipe(babel(&#123; <span class="attr">presets</span>: [<span class="string">'es2015'</span>] &#125;))</span><br><span class="line">.pipe(uglify())</span><br><span class="line">.pipe(gulp.dest(<span class="string">'./public'</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'minify-html'</span>, <span class="string">'minify-css'</span>, <span class="string">'minify-js'</span>]);</span><br></pre></td></tr></table></figure>
-<p>执行 <code>hexo g</code> 产生编译文件之后，执行 <code>gulp</code>进行压缩，以下信息代表压缩成功</p>
-<img src="/2018/08/06/Hexo搭建博客错误解决/03.png" title="压缩成功"> 
-<p>再执行 <code>hexo d</code>部署到服务器上即可。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-<div>
-  
-</div>
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1108,7 +1088,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1158,7 +1138,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

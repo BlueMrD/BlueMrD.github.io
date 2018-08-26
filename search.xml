@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[requests+gevent异步爬虫]]></title>
+    <url>%2F2018%2F08%2F26%2Frequests-gevent%E5%BC%82%E6%AD%A5%E7%88%AC%E8%99%AB%2F</url>
+    <content type="text"><![CDATA[猴子补丁由于requests不是非阻塞的，所以需要通过gevent 给其打上一个猴子补丁来实现非阻塞。 `from gevent import monkey; monkey.path_all 简单示例通过一个简单的例子来说明 requests 加 gevent如何实现异步爬虫 12345678910111213141516171819202122from gevent import monkey; monkey.path_all()import requestsimport geventimport timedef f(url): print(url) data = requests.get(url) print(data) start = time.time()url = 'http://www.baidu.com/'url_list = []for i in range(5): url_list.append(gevent.spawn(f, url)) gevent.joinall(url_list)print(time.time()-start)]]></content>
+      <categories>
+        <category>Programme</category>
+      </categories>
+      <tags>
+        <tag>spider</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Django博客基于CBV限制用户访问及重定向]]></title>
     <url>%2F2018%2F08%2F23%2FDjango%E5%8D%9A%E5%AE%A2%E5%9F%BA%E4%BA%8ECBV%E9%99%90%E5%88%B6%E7%94%A8%E6%88%B7%E8%AE%BF%E9%97%AE%E5%8F%8A%E9%87%8D%E5%AE%9A%E5%90%91%2F</url>
     <content type="text"><![CDATA[基于FBV模式最开始的视图函数是基于FBV模式下实现的限制用户访问及重定向，代码如下： 12345678from django.contrib.auth.decorators import login_requred@login_required(login_url='/users/login', redirect_field_name='next')def index(request): post_list = Post.objects.all() page = request.GET.get('page', '1') data = get_page_data(post_list, page) return render(request, 'blog/index.html', context=data) 原理可以参考我的这篇文章 login_required介绍 基于CBV模式今天优化了一下 views.py 里的代码，改为通用视图来实现，index函数代码改为： 12345678910111213from django.contrib.auth import login_requiredfrom django.views.generic import ListViewclass IndexView(ListView): model = Post template_name = 'blog/index.html' context_object_name = 'post_list' paginate_by = 1 @classmethod def as_view(cls, **initkwargs): view = super().as_view(**initkwargs) return login_required(view, login_url='/users/login', redirect_field_name='next') 参考： django 限制匿名用户访问以及重定向 Django中login_required装饰器的深入介绍]]></content>
