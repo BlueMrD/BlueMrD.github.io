@@ -155,7 +155,7 @@
 <meta property="og:description" content="猴子补丁由于requests不是非阻塞的，所以需要通过gevent 给其打上一个猴子补丁来实现非阻塞。 `from gevent import monkey; monkey.path_all 简单示例通过一个简单的例子来说明 requests 加 gevent如何实现异步爬虫 12345678910111213141516171819202122from gevent import monkey;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/08/26/requests-gevent异步爬虫/01.png">
-<meta property="og:updated_time" content="2018-08-26T08:01:20.142Z">
+<meta property="og:updated_time" content="2018-08-26T08:21:21.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="requests+gevent异步爬虫">
 <meta name="twitter:description" content="猴子补丁由于requests不是非阻塞的，所以需要通过gevent 给其打上一个猴子补丁来实现非阻塞。 `from gevent import monkey; monkey.path_all 简单示例通过一个简单的例子来说明 requests 加 gevent如何实现异步爬虫 12345678910111213141516171819202122from gevent import monkey;">
@@ -426,7 +426,7 @@
                 
               
 
-              <time title="创建时间：2018-08-26 15:51:48 / 修改时间：16:01:20" itemprop="dateCreated datePublished" datetime="2018-08-26T15:51:48+08:00">2018-08-26</time>
+              <time title="创建时间：2018-08-26 15:51:48 / 修改时间：16:21:21" itemprop="dateCreated datePublished" datetime="2018-08-26T15:51:48+08:00">2018-08-26</time>
             
 
             
@@ -487,7 +487,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">507</span>
+                <span title="本文字数">574</span>
               
 
               
@@ -516,6 +516,7 @@
 <h3 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h3><p>通过一个简单的例子来说明 <code>requests</code> 加 <code>gevent</code>如何实现异步爬虫</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gevent <span class="keyword">import</span> monkey; monkey.path_all()</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> gevent</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(url)</span>:</span></span><br><span class="line">    print(url)</span><br><span class="line">    </span><br><span class="line">    data = requests.get(url)</span><br><span class="line">    </span><br><span class="line">    print(data)</span><br><span class="line"> </span><br><span class="line">start = time.time()</span><br><span class="line">url = <span class="string">'http://www.baidu.com/'</span></span><br><span class="line">url_list = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    url_list.append(gevent.spawn(f, url))</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">gevent.joinall(url_list)</span><br><span class="line">print(time.time()-start)</span><br></pre></td></tr></table></figure>
 <img src="/2018/08/26/requests-gevent异步爬虫/01.png" title="打印结果">
+<p>同步的时候需要 <code>0.3~0.4s</code>，这是请求数只有 <code>5</code>的时候，当请求数达到<code>1000</code>的时候，同步爬虫耗时是异步的两倍，可以自行测试一下。</p>
 
       
     </div>
