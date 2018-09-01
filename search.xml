@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[requests+gevent异步爬虫]]></title>
-    <url>%2F2018%2F08%2F26%2Frequests-gevent%E5%BC%82%E6%AD%A5%E7%88%AC%E8%99%AB%2F</url>
-    <content type="text"><![CDATA[猴子补丁由于requests不是非阻塞的，所以需要通过gevent 给其打上一个猴子补丁来实现非阻塞。 from gevent import monkey; monkey.path_all 简单示例通过一个简单的例子来说明 requests 加 gevent如何实现异步爬虫 12345678910111213141516171819202122from gevent import monkey; monkey.path_all()import requestsimport geventimport timedef f(url): print(url) data = requests.get(url) print(data) start = time.time()url = 'http://www.baidu.com/'url_list = []for i in range(5): url_list.append(gevent.spawn(f, url)) gevent.joinall(url_list)print(time.time()-start) 同步的时候需要 0.3~0.4s，这是请求数只有 5的时候，当请求数达到1000的时候，同步爬虫耗时是异步的两倍，可以自行测试一下。]]></content>
+    <title><![CDATA[requests实现异步爬虫]]></title>
+    <url>%2F2018%2F09%2F01%2Frequests%E5%AE%9E%E7%8E%B0%E5%BC%82%E6%AD%A5%E7%88%AC%E8%99%AB%2F</url>
+    <content type="text"><![CDATA[Gevent猴子补丁由于requests不是非阻塞的，所以需要通过gevent 给其打上一个猴子补丁来实现非阻塞。 安装 pip install gevent， 打上补丁 from gevent import monkey; monkey.path_all 简单示例通过一个简单的例子来说明 requests 加 gevent如何实现异步爬虫 12345678910111213141516171819202122from gevent import monkey; monkey.path_all()import requestsimport geventimport timedef f(url): print(url) data = requests.get(url) print(data) start = time.time()url = 'http://www.baidu.com/'url_list = []for i in range(5): url_list.append(gevent.spawn(f, url)) gevent.joinall(url_list)print(time.time()-start) 同步的时候需要 0.3~0.4s，这是请求数只有 5的时候，当请求数达到1000的时候，同步爬虫耗时是异步的两倍，可以自行测试一下。 Grequests从名字便可以看出，这是一个封装了gevnet的 reqeusts 库，安装 pip install grequests 简单示例123456789101112import grequestsurls = [ 'http://www.heroku.com', 'http://python-tablib.org', 'http://httpbin.org', 'http://python-requests.org', 'http://fakedomain/', 'http://kennethreitz.com']response_list = grequests.map(grequests.get(url) for url in urls) 输出结果为 1[&lt;Response [200]&gt;, &lt;Response [200]&gt;, &lt;Response [200]&gt;, &lt;Response [200]&gt;, None, &lt;Response [200]&gt;] requests-future简单示例Asynico简单示例]]></content>
       <categories>
         <category>Programme</category>
       </categories>
