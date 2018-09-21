@@ -165,8 +165,12 @@
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/06.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/07.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/11.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/12.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/13.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/14.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/27.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/28.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/29.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/15.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/17.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/16.png">
@@ -179,7 +183,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/24.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/25.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/26.png">
-<meta property="og:updated_time" content="2018-08-21T14:37:44.025Z">
+<meta property="og:updated_time" content="2018-09-21T13:06:47.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django小技巧">
 <meta name="twitter:description" content="Django项目设置中文与本地时区在项目下的 settings.py 文件中进行设置，将  改为  运行项目打开网址即可  关于外键从Django2.0版本开始，在类模型中，定义外键和一对一关系字段时需要添加 on_delete 参数，不然会报错：__init__() missing 1 required positional argument: &amp;#39;on_delete&amp;#39;。  后台显">
@@ -467,7 +471,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-21 22:37:44" itemprop="dateModified" datetime="2018-08-21T22:37:44+08:00">2018-08-21</time>
+                <time title="修改时间：2018-09-21 21:06:47" itemprop="dateModified" datetime="2018-09-21T21:06:47+08:00">2018-09-21</time>
               
             
           </span>
@@ -523,7 +527,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.7k</span>
+                <span title="本文字数">5.4k</span>
               
 
               
@@ -579,7 +583,7 @@
 <a id="more"></a>
 <h3 id="反向查询与数量统计"><a href="#反向查询与数量统计" class="headerlink" title="反向查询与数量统计"></a>反向查询与数量统计</h3><p>我在 Django 里写了两个 <code>Model</code>，一个是 <code>Post</code>（文章），一个是 <code>Comment</code>（评论），两者是一对多关系 <code>Post</code>是<code>Comment</code> 的外键，如图：</p>
 <img src="/2018/08/12/Django小技巧/11.png" title="Post">
-
+<img src="/2018/08/12/Django小技巧/12.png" title="Comment">
 <p>在视图中如果需要取出一篇文章的全部评论，可以这样写</p>
 <p><code>post= get_object_or_404(Post, pk=pk)</code></p>
 <p><code>comment_list = Comment.objects.filter(post=post)</code></p>
@@ -610,8 +614,25 @@
 <img src="/2018/08/12/Django小技巧/14.png" title="djangoblog/templates">
 <p>静态文件路径添加，在 <code>settings.py</code> 中的末尾添加</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">STATIC_PATH = os.path.join(BASE_DIR, <span class="string">'static'</span>)</span><br><span class="line"></span><br><span class="line">STATICFILES_DIRS = (</span><br><span class="line">    STATIC_PATH,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>在模板文件中添加<code>js</code>/<code>css</code>文件</p>
+<p>在文件最上面添加</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% load static %&#125; /&#123;% load staticfiles %&#125;</span><br></pre></td></tr></table></figure>
+<p>将文件中的所有 <code>/xxx.js</code> 文件与 <code>/xxx.css</code> 文件 换成</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% satic <span class="string">'/xxx.js'</span> %&#125; 与 &#123;% static <span class="string">'/xxx.css '</span>%&#125;</span><br></pre></td></tr></table></figure>
+<p>如图</p>
+<img src="/2018/08/12/Django小技巧/27.png" title="静态文件使用">
 <p>媒体资源路径添加</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MEDIA_URL = <span class="string">'/media/'</span></span><br><span class="line">MEDIA_ROOT = os.path.join(BASE_DIR, <span class="string">'media'</span>)</span><br></pre></td></tr></table></figure>
+<p>资源应用</p>
+<p>a. 在<code>settings.py</code> 中设置图片处理器</p>
+<img src="/2018/08/12/Django小技巧/28.png" title="图片处理器">
+<p>b. 在 <code>urls.py</code> 中配置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> re_path</span><br><span class="line"><span class="keyword">from</span> django.view.static <span class="keyword">import</span> serve</span><br><span class="line"><span class="comment"># djangoproject 为创建的 django 项目名</span></span><br><span class="line"><span class="keyword">from</span> djangoproject.settings <span class="keyword">import</span> MEDIA_ROOT</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    re_path(<span class="string">'^media/(?P&lt;path&gt;.*)'</span>, serve, &#123;<span class="string">'document_root'</span>: MEDIA_ROOT&#125;),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>c. 在模板文件中使用</p>
+<img src="/2018/08/12/Django小技巧/29.png" title="图片显示">
+<p>其中的 <code>banner.image</code> 是 <code>models.py</code>  中的字段，通过<code>views.py</code> 中的方法获取</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image = models.ImageField(<span class="string">'轮播图'</span>, upload_to=<span class="string">'index_banner/%Y/%m'</span>, max_length=<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<p>迁移数据库后会在 <code>media</code> 文件夹下生成一个 <code>index_banner</code> 文件，用来存放上传的图片</p>
 <h3 id="app应用设计"><a href="#app应用设计" class="headerlink" title="app应用设计"></a>app应用设计</h3><p>开发环境在<code>PyCharm</code>下。</p>
 <p>若一个<code>django</code>项目下有许多个<code>app</code>应用，那么我们肯定想要将他们它们放入同一个文件夹下，方便管理。</p>
 <p>例：</p>
