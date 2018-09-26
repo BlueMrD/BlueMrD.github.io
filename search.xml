@@ -142,8 +142,19 @@
   </entry>
   <entry>
     <title><![CDATA[pyhton爬虫使用faker/fake创建ua池]]></title>
-    <url>%2F2018%2F08%2F15%2F%E4%BD%BF%E7%94%A8faker%E5%A4%A7%E9%AD%94%E7%8E%8B%E5%88%9B%E5%BB%BAuser-agent%2F</url>
+    <url>%2F2018%2F08%2F15%2Fpyhton%E7%88%AC%E8%99%AB%E4%BD%BF%E7%94%A8faker%E6%88%96fake%E5%88%9B%E5%BB%BAua%E6%B1%A0%2F</url>
     <content type="text"><![CDATA[Faker1pip install faker 123456789101112from faker import Factory, Fakerfrom pprint import pprintfactory = Factory.create() # factory = Facker()print(factory.user_agent())print()UAPOOL = [factory.user_agent for i in range(50)]pprint(UAPOOL) Fake1pip install fake-useragent 123456789101112from fake_useragent import UserAgentfrom pprint import pprintua = UserAgent() # factory = Facker()print(ua.random())print()UAPOOL = [ua.random() for i in range(50)]pprint(UAPOOL)]]></content>
+      <categories>
+        <category>Programme</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[pyhton爬虫使用faker/fake创建ua池]]></title>
+    <url>%2F2018%2F08%2F15%2F%E4%BD%BF%E7%94%A8faker%E5%A4%A7%E9%AD%94%E7%8E%8B%E5%88%9B%E5%BB%BAuser-agent%2F</url>
+    <content type="text"><![CDATA[Faker1pip install faker 123456789101112from faker import Factory, Fakerfrom pprint import pprintfactory = Factory.create() # factory = Facker()print(factory.user_agent())print()UAPOOL = [factory.user_agent for i in range(50)]pprint(UAPOOL) Fake1pip install fake-useragent 123456789101112from fake_useragent import UserAgentfrom pprint import pprintua = UserAgent() # factory = Facker()print(ua.rando)print()UAPOOL = [ua.random for i in range(50)]pprint(UAPOOL)]]></content>
       <categories>
         <category>Programme</category>
       </categories>
