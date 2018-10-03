@@ -654,9 +654,13 @@
                 
               
 
-              <time title="创建时间：2018-10-03 22:46:26" itemprop="dateCreated datePublished" datetime="2018-10-03T22:46:26+08:00">2018-10-03</time>
+              <time title="创建时间：2018-10-03 22:46:26 / 修改时间：22:55:16" itemprop="dateCreated datePublished" datetime="2018-10-03T22:46:26+08:00">2018-10-03</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -693,7 +697,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">0</span>
+                <span title="本文字数">1.4k</span>
               
 
               
@@ -719,7 +723,32 @@
       
         
           
-            
+            <h3 id="关于外键"><a href="#关于外键" class="headerlink" title="关于外键"></a>关于外键</h3><p>从<code>Django2.0</code>版本开始，在类模型中，定义外键和一对一关系字段时需要添加 <code>on_delete</code> 参数，不然会报错：<code>__init__() missing 1 required positional argument: &#39;on_delete&#39;</code>。</p>
+<img src="/2018/10/03/Django常用模型方法/01.png" title="Post">
+<h3 id="反向查询与数量统计"><a href="#反向查询与数量统计" class="headerlink" title="反向查询与数量统计"></a>反向查询与数量统计</h3><p>我在 Django 里写了两个 <code>Model</code>，一个是 <code>Post</code>（文章），一个是 <code>Comment</code>（评论），两者是一对多关系 <code>Post</code>是<code>Comment</code> 的外键，如图：</p>
+<img src="/2018/10/03/Django常用模型方法/02.png" title="Post">
+<img src="/2018/10/03/Django常用模型方法/03.png" title="Comment">
+<p>在视图中如果需要取出一篇文章的全部评论，可以这样写</p>
+<p><code>post= get_object_or_404(Post, pk=pk)</code></p>
+<p><code>comment_list = Comment.objects.filter(post=post)</code></p>
+<p>这是从所有评论中选出属于 <code>post</code> 文章的评论</p>
+<p>现在来看另一种方法，直接查询某篇文章所有属于它的评论</p>
+<p><code>post = get_object_or_404(Post, pk=pk)</code></p>
+<p><code>comment_list = post.comment_set.all()</code></p>
+<p>当然，我们一般会在文章页统计评论数，应该怎么做呢？</p>
+<p>在模板文件中使用  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; post.comment_set.count &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p> 即可。</p>
+<p>（模型管理器<code>comment_set</code> 是一个特殊的模型管理器）还有一个<code>count</code>方法，返回数量 </p>
+<p>使用 <code>annotate</code></p>
+<p>新定义了一个<code>Model</code>叫 <code>Category</code>作为<code>Post</code>，在 <code>Post</code>里添加一个外键字段</p>
+<p>现在我想获取 属于同一分类 <code>category</code>下的所有 <code>post</code>，由前面所说的方法我可以在这样写</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 views.py 中</span></span><br><span class="line">category_list = Category.objects.all()</span><br><span class="line"><span class="comment"># 在模板中</span></span><br><span class="line">&#123;&#123; category.post_set.count &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>但是这样的话每调用一次都会访问一次数据库，那么 <code>annotate</code> 就派上用场了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在views.py中</span></span><br><span class="line">category_list = Category.objects.annotate(num_posts=Count(<span class="string">'post'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在模板中</span></span><br><span class="line">&#123;% <span class="keyword">for</span> category <span class="keyword">in</span> category_list %&#125; </span><br><span class="line">&#123;&#123; category.num_posts &#125;&#125;</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<p>使用 <code>annotate</code> 只需访问一次数据库就可以了。</p>
+<h3 id="Django-ORM-查询语句"><a href="#Django-ORM-查询语句" class="headerlink" title="Django ORM 查询语句"></a>Django ORM 查询语句</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># __gt 大于</span></span><br><span class="line">Model.objects.filter(count__gt=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># __gte 大于等于</span></span><br><span class="line">Model.objects.filter(count__gte=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># lt 小于</span></span><br><span class="line">Model.objects.filter(count__lt=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># lte 小于等于</span></span><br><span class="line">Model.objects.filter(count__lte=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># contains关键字，区分大小写</span></span><br><span class="line">Model.objects.filter(title_contains=q)</span><br><span class="line"></span><br><span class="line"><span class="comment"># icontains 不区分大小写的关键字(contains)</span></span><br><span class="line">Model.objects.filter(title__icontains=q)</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -822,9 +851,13 @@
                 
               
 
-              <time title="创建时间：2018-10-03 22:46:06" itemprop="dateCreated datePublished" datetime="2018-10-03T22:46:06+08:00">2018-10-03</time>
+              <time title="创建时间：2018-10-03 22:46:06 / 修改时间：22:55:21" itemprop="dateCreated datePublished" datetime="2018-10-03T22:46:06+08:00">2018-10-03</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -861,7 +894,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">0</span>
+                <span title="本文字数">1.1k</span>
               
 
               
@@ -887,7 +920,20 @@
       
         
           
-            
+            <h3 id="自定义模板标签"><a href="#自定义模板标签" class="headerlink" title="自定义模板标签"></a>自定义模板标签</h3><p><code>django</code>的模板标签自定义</p>
+<p><code>models.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 分类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Category</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 标签</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tag</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 文章</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Post</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>在应用目录下创建<code>python package</code>，名字必须为<code>templatetags</code>，</p>
+<p>在该<code>python</code>包下自定义文件<code>blog_tags.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*-coding:utf-8-*-</span></span><br><span class="line"><span class="comment"># blog_tags.py</span></span><br><span class="line"></span><br><span class="line">__Author__ = <span class="string">"Mr.D"</span></span><br><span class="line">__Date__ = <span class="string">'2018\8\14 0014 21:26'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> ..models <span class="keyword">import</span> Post, Category, Tag</span><br><span class="line"><span class="keyword">from</span> django <span class="keyword">import</span> template</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">register = template.Library()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将该函数注册为模板标签，可通过&#123;% get_recent_posts %&#125;语法在模板中调用</span></span><br><span class="line"><span class="comment"># 最新文章</span></span><br><span class="line"><span class="meta">@register.simple_tag</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_recent_posts</span><span class="params">(num=<span class="number">5</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> Post.objects.all().order_by(<span class="string">'-created_time'</span>)[:num]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 归档</span></span><br><span class="line"><span class="meta">@register.simple_tag</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">archives</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> Post.objects.dates(<span class="string">'created_time'</span>, <span class="string">'month'</span>, order=<span class="string">'DESC'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 分类</span></span><br><span class="line"><span class="meta">@register.simple_tag</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_categories</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> Category.objects.all()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@register.simple_tag</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tags</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> Tag.objects.all()</span><br></pre></td></tr></table></figure>
+<p>通过此方法可使上面三个函数作为模板语言在<code>django</code>模板中使用，在模板文件中导入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% load blog_tags %&#125;</span><br></pre></td></tr></table></figure>
+<p>即可。</p>
+<p>使用方法与一般模板语言一样。</p>
+<img src="/2018/10/03/Django模板语言设计/01.png" title="最新文章">
+
+<img src="/2018/10/03/Django模板语言设计/03.png" title="分类">
+<img src="/2018/10/03/Django模板语言设计/04.png" title="标签云">
           
         
       
