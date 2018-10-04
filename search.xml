@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python虚拟环境配置与使用]]></title>
+    <url>%2F2018%2F10%2F04%2FPython%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[使用 git bash 打开虚拟环境基本步骤与在 windows cmd 下一样，只有激活虚拟环境这一步不同 windows下 1D:\whiteblog\venv\Scripts&gt;activate git bash 下，在目录下输入 1source activate 即可。]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Django常用模型方法]]></title>
     <url>%2F2018%2F10%2F03%2FDjango%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9E%8B%E6%96%B9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[关于外键从Django2.0版本开始，在类模型中，定义外键和一对一关系字段时需要添加 on_delete 参数，不然会报错：__init__() missing 1 required positional argument: &#39;on_delete&#39;。 反向查询与数量统计我在 Django 里写了两个 Model，一个是 Post（文章），一个是 Comment（评论），两者是一对多关系 Post是Comment 的外键，如图： 在视图中如果需要取出一篇文章的全部评论，可以这样写 post= get_object_or_404(Post, pk=pk) comment_list = Comment.objects.filter(post=post) 这是从所有评论中选出属于 post 文章的评论 现在来看另一种方法，直接查询某篇文章所有属于它的评论 post = get_object_or_404(Post, pk=pk) comment_list = post.comment_set.all() 当然，我们一般会在文章页统计评论数，应该怎么做呢？ 在模板文件中使用 1&#123;&#123; post.comment_set.count &#125;&#125; 即可。 （模型管理器comment_set 是一个特殊的模型管理器）还有一个count方法，返回数量 使用 annotate 新定义了一个Model叫 Category作为Post，在 Post里添加一个外键字段 现在我想获取 属于同一分类 category下的所有 post，由前面所说的方法我可以在这样写 1234# 在 views.py 中category_list = Category.objects.all()# 在模板中&#123;&#123; category.post_set.count &#125;&#125; 但是这样的话每调用一次都会访问一次数据库，那么 annotate 就派上用场了 1234567# 在views.py中category_list = Category.objects.annotate(num_posts=Count('post'))# 在模板中&#123;% for category in category_list %&#125; &#123;&#123; category.num_posts &#125;&#125;&#123;% endfor %&#125; 使用 annotate 只需访问一次数据库就可以了。 Django ORM 查询语句1234567891011121314151617# __gt 大于Model.objects.filter(count__gt=0)# __gte 大于等于Model.objects.filter(count__gte=0)# lt 小于Model.objects.filter(count__lt=0)# lte 小于等于Model.objects.filter(count__lte=0)# contains关键字，区分大小写Model.objects.filter(title_contains=q)# icontains 不区分大小写的关键字(contains)Model.objects.filter(title__icontains=q)]]></content>
