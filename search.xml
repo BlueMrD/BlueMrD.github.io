@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[使用httpie调试api]]></title>
+    <url>%2F2018%2F10%2F07%2F%E4%BD%BF%E7%94%A8httpie%E8%B0%83%E8%AF%95api%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[Python虚拟环境配置与使用]]></title>
     <url>%2F2018%2F10%2F04%2FPython%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[使用 git bash 打开虚拟环境基本步骤与在 windows cmd 下一样，只有激活虚拟环境这一步不同 windows下 1D:\whiteblog\venv\Scripts&gt;activate git bash 下，在目录下输入 1source activate 即可。]]></content>
