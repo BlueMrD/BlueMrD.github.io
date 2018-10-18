@@ -654,7 +654,7 @@
                 
               
 
-              <time title="创建时间：2018-10-18 21:55:37 / 修改时间：22:33:55" itemprop="dateCreated datePublished" datetime="2018-10-18T21:55:37+08:00">2018-10-18</time>
+              <time title="创建时间：2018-10-18 21:55:37 / 修改时间：23:07:20" itemprop="dateCreated datePublished" datetime="2018-10-18T21:55:37+08:00">2018-10-18</time>
             
 
             
@@ -715,7 +715,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.9k</span>
+                <span title="本文字数">2.5k</span>
               
 
               
@@ -757,6 +757,8 @@
 <p><code>tasks.py</code></p>
 <p>该文件下写异步任务，例如</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> shared_task</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">long_time_operation</span><span class="params">()</span>:</span></span><br><span class="line">    time.sleep(<span class="number">10</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Async Op!'</span></span><br></pre></td></tr></table></figure>
+<p><code>celerydemo/__init__.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .celery <span class="keyword">import</span> app <span class="keyword">as</span> celery_app</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">__all__ = [<span class="string">'celery_app'</span>]</span><br></pre></td></tr></table></figure>
 <p><code>views.py</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> .tasks <span class="keyword">import</span> long_time_operation</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 异步</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">async_op</span><span class="params">(request)</span>:</span></span><br><span class="line">    long_time_operation.delay()</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"Async Op!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 同步</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">block_op</span><span class="params">(request)</span>:</span></span><br><span class="line">    long_time_operation()</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"Finished!"</span>)</span><br></pre></td></tr></table></figure>
 <p><code>celerydemo/urls.py</code> </p>
@@ -771,6 +773,23 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver</span><br></pre></td></tr></table></figure>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>在浏览器中输入 <code>127.0.0.1:8000/celery/block_op</code>，会加载 10s 才返回 <code>Finished!</code></p>
 <p>在浏览器中输入<code>127.0.0.1:8000:celery/async_op</code>，会立即返回 <code>Async Op!</code></p>
+<h3 id="报错与解决方法"><a href="#报错与解决方法" class="headerlink" title="报错与解决方法"></a>报错与解决方法</h3><p><code>windows</code>下对<code>celery</code>官方示例进行测试时会报错</p>
+<p><code>tasks.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> shared_task</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x+y</span><br></pre></td></tr></table></figure>
+<img src="/2018/10/18/celery在Django中的使用/04.png" title="测试">
+<p>报错为 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ValueError: not enough values to unpack (expected 3, got 0)</span><br></pre></td></tr></table></figure>
+<p>报错原因未知</p>
+<p>解决方法一：</p>
+<p>下载 <code>eventlet</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install evnetlet</span><br></pre></td></tr></table></figure>
+<p>然后在启动<code>celery</code>时，输入命令为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery -A worker celerydemo -l info -P eventlet</span><br></pre></td></tr></table></figure>
+<p>再次进行测试即可</p>
+<p>解决方法二：</p>
+<p>无须下载任何库，只需在启动<code>celery</code>时，输入命令为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery -A worker celerydemo --pool=solo -l info</span><br></pre></td></tr></table></figure>
+<p>即可</p>
 
           
         
