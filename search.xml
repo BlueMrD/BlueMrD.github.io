@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[celery在Django中的使用]]></title>
+    <url>%2F2018%2F10%2F18%2Fcelery%E5%9C%A8Django%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[celery在Django中的使用安装依赖123pip install djangopip install celerypip install redis 本文使用的缓存数据库是 redis ， 所以需要下载 redis 启动rediscmd 进入redis` 的根目录下，输入 1redis-server.exe redis.windows.conf 如图所示，即启动成功 celery配置创建一个django 项目与一个 app 应用，然后在其中新建一些 py 文件用来配置 celery ，基本形式如下 在 settings.py 文件目录下新建了一个 celery.py 文件 在 app 目录下新建了一个 tasks.py 文件 注意：这两个文件不可随意命名，必须为 celery 与 tasks celery.py 12345678910111213141516171819# -*-coding:utf-8-*-cdfrom __future__ import absolute_import, unicode_literalsimport osfrom celery import Celery# celerydemo 为django项目名os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'celerydemo.settings')# 这里使用的是redis作缓存，所以需进行设置# 若 redis 未设置密码，写为broker="redis://localhost"# 若 redis 已设置密码，则写为broker="redis://:password@localhost" (password为设置的密码)app = Celery('celerydemo', backend='redis', broker="redis://:123456@localhost")app.config_from_object('django.conf:settings', namespace='CELERY')app.autodiscover_tasks() tasks.py 该文件下写异步任务，例如 12345678from celery import shared_taskimport time@shared_taskdef long_time_operation(): time.sleep(10) return 'Async Op!' views.py 12345678910111213from django.http import HttpResponsefrom .tasks import long_time_operation# 异步def async_op(request): long_time_operation.delay() return HttpResponse("Async Op!")# 同步def block_op(request): long_time_operation() return HttpResponse("Finished!") celerydemo/urls.py 1234567from django.contrib import adminfrom django.urls import path, includeurlpatterns = [ path('admin/', admin.site.urls), path('celery/', include('demo.urls')),] demo/urls.py 123456789from django.urls import pathfrom . import viewsapp_name= 'demo'urlpatterns = [ path('async/', views.async_op), path('block/', views.block_op),] 启动celery并运行项目在命令行中输入 1celery -A celerydemo worker -l info 若如图所示，则表示 celery 启动成功 然后另打开一个命令行，运行项目 1python manage.py runserver 测试在浏览器中输入 127.0.0.1:8000/celery/block_op，会加载 10s 才返回 Finished! 在浏览器中输入127.0.0.1:8000:celery/async_op，会立即返回 Async Op!]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Django异步任务</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[使用httpie调试api]]></title>
     <url>%2F2018%2F10%2F07%2F%E4%BD%BF%E7%94%A8httpie%E8%B0%83%E8%AF%95api%2F</url>
     <content type="text"></content>
