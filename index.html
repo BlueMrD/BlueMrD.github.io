@@ -654,12 +654,24 @@
                 
               
 
-              <time title="创建时间：2018-10-18 21:55:37 / 修改时间：23:07:20" itemprop="dateCreated datePublished" datetime="2018-10-18T21:55:37+08:00">2018-10-18</time>
+              <time title="创建时间：2018-10-18 21:55:37" itemprop="dateCreated datePublished" datetime="2018-10-18T21:55:37+08:00">2018-10-18</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-19 18:41:58" itemprop="dateModified" datetime="2018-10-19T18:41:58+08:00">2018-10-19</time>
               
             
           </span>
@@ -742,7 +754,7 @@
         
           
             <h2 id="celery在Django中的使用"><a href="#celery在Django中的使用" class="headerlink" title="celery在Django中的使用"></a>celery在Django中的使用</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install django</span><br><span class="line">pip install celery</span><br><span class="line">pip install redis</span><br></pre></td></tr></table></figure>
-<p>本文使用的缓存数据库是 <code>redis</code> ， 所以需要下载 <code>redis</code></p>
+<p>本文使用的消息队列是 <code>redis</code> ， 所以需要下载 <code>redis</code></p>
 <h3 id="启动redis"><a href="#启动redis" class="headerlink" title="启动redis"></a>启动redis</h3><p><code></code>cmd <code>进入</code>redis` 的根目录下，输入</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server.exe redis.windows.conf</span><br></pre></td></tr></table></figure>
 <p>如图所示，即启动成功</p>
@@ -753,7 +765,7 @@
 <p>在  <code>app</code> 目录下新建了一个 <code>tasks.py</code> 文件</p>
 <p>注意：这两个文件不可随意命名，必须为 <code>celery</code> 与 <code>tasks</code></p>
 <p><code>celery.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*-coding:utf-8-*-cd</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># celerydemo 为django项目名</span></span><br><span class="line">os.environ.setdefault(<span class="string">'DJANGO_SETTINGS_MODULE'</span>, <span class="string">'celerydemo.settings'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这里使用的是redis作缓存，所以需进行设置</span></span><br><span class="line"><span class="comment"># 若 redis 未设置密码，写为broker="redis://localhost"</span></span><br><span class="line"><span class="comment"># 若 redis 已设置密码，则写为broker="redis://:password@localhost" (password为设置的密码)</span></span><br><span class="line">app = Celery(<span class="string">'celerydemo'</span>, backend=<span class="string">'redis'</span>, broker=<span class="string">"redis://:123456@localhost"</span>)</span><br><span class="line"></span><br><span class="line">app.config_from_object(<span class="string">'django.conf:settings'</span>, namespace=<span class="string">'CELERY'</span>)</span><br><span class="line"></span><br><span class="line">app.autodiscover_tasks()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*-coding:utf-8-*-cd</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># celerydemo 为django项目名</span></span><br><span class="line">os.environ.setdefault(<span class="string">'DJANGO_SETTINGS_MODULE'</span>, <span class="string">'celerydemo.settings'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这里使用的是redis作消息队列，所以需进行设置</span></span><br><span class="line"><span class="comment"># 若 redis 未设置密码，写为broker="redis://localhost"</span></span><br><span class="line"><span class="comment"># 若 redis 已设置密码，则写为broker="redis://:password@localhost" (password为设置的密码)</span></span><br><span class="line">app = Celery(<span class="string">'celerydemo'</span>, backend=<span class="string">'redis'</span>, broker=<span class="string">"redis://:123456@localhost"</span>)</span><br><span class="line"></span><br><span class="line">app.config_from_object(<span class="string">'django.conf:settings'</span>, namespace=<span class="string">'CELERY'</span>)</span><br><span class="line"></span><br><span class="line">app.autodiscover_tasks()</span><br></pre></td></tr></table></figure>
 <p><code>tasks.py</code></p>
 <p>该文件下写异步任务，例如</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> shared_task</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">long_time_operation</span><span class="params">()</span>:</span></span><br><span class="line">    time.sleep(<span class="number">10</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Async Op!'</span></span><br></pre></td></tr></table></figure>
