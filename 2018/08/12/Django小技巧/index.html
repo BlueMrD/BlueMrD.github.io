@@ -176,7 +176,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/24.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/25.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/12/Django小技巧/26.png">
-<meta property="og:updated_time" content="2018-10-03T14:55:24.208Z">
+<meta property="og:updated_time" content="2018-10-19T12:15:36.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django小技巧">
 <meta name="twitter:description" content="Django项目设置中文与本地时区在项目下的 settings.py 文件中进行设置，将  改为  运行项目打开网址即可  后台显示中文应用名、类名与字段名如何登陆Django后台?  Django后台登录 在添加Django应用后，创建超级管理员账号可以登录Django自带的管理后台，比如我添加了一个名为blog的应用，登录后台后显示为  现在我们来将它修改为中文显示 在Django应用目录(即">
@@ -464,7 +464,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-03 22:55:24" itemprop="dateModified" datetime="2018-10-03T22:55:24+08:00">2018-10-03</time>
+                <time title="修改时间：2018-10-19 20:15:36" itemprop="dateModified" datetime="2018-10-19T20:15:36+08:00">2018-10-19</time>
               
             
           </span>
@@ -520,7 +520,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.9k</span>
+                <span title="本文字数">3.2k</span>
               
 
               
@@ -621,6 +621,8 @@
 <p>刷新一下后台</p>
 <img src="/2018/08/12/Django小技巧/25.png" title="header">
 <img src="/2018/08/12/Django小技巧/26.png" title="title">
+<h3 id="Django忘记管理员密码解决方案"><a href="#Django忘记管理员密码解决方案" class="headerlink" title="Django忘记管理员密码解决方案"></a>Django忘记管理员密码解决方案</h3><p>进入<code>shell</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span>&gt;&gt;from django.contrib.auth.models import User</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt;user = User.objects.get(username=username)</span><br><span class="line"><span class="meta">#</span> 如果用户名也忘记了</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt;user = User.objects.get() / User.objects.all()[0]</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt;user</span><br><span class="line">&lt;User: username&gt;</span><br><span class="line"><span class="meta">#</span> 重置密码</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt;user.set_password('yournewpassword')</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt;user.save()</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -800,7 +802,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -856,7 +858,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -899,7 +903,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Django项目设置中文与本地时区"><span class="nav-number">1.</span> <span class="nav-text">Django项目设置中文与本地时区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后台显示中文应用名、类名与字段名"><span class="nav-number">2.</span> <span class="nav-text">后台显示中文应用名、类名与字段名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板文件、静态文件与媒体资源"><span class="nav-number">3.</span> <span class="nav-text">模板文件、静态文件与媒体资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app应用设计"><span class="nav-number">4.</span> <span class="nav-text">app应用设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义Django-admin"><span class="nav-number">5.</span> <span class="nav-text">自定义Django admin</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Django项目设置中文与本地时区"><span class="nav-number">1.</span> <span class="nav-text">Django项目设置中文与本地时区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后台显示中文应用名、类名与字段名"><span class="nav-number">2.</span> <span class="nav-text">后台显示中文应用名、类名与字段名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板文件、静态文件与媒体资源"><span class="nav-number">3.</span> <span class="nav-text">模板文件、静态文件与媒体资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app应用设计"><span class="nav-number">4.</span> <span class="nav-text">app应用设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义Django-admin"><span class="nav-number">5.</span> <span class="nav-text">自定义Django admin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Django忘记管理员密码解决方案"><span class="nav-number">6.</span> <span class="nav-text">Django忘记管理员密码解决方案</span></a></li></ol></div>
             
 
           </div>
