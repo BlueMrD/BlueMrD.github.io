@@ -608,6 +608,192 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/Django-form的简单使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BlueMrD">
+      <meta itemprop="description" content="This is my blue sea.">
+      <meta itemprop="image" content="/images/Nicolas.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blue's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/08/Django-form的简单使用/" itemprop="url">
+                  Django form的简单使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-08 22:48:54 / 修改时间：23:08:13" itemprop="dateCreated datePublished" datetime="2018-11-08T22:48:54+08:00">2018-11-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/08/Django-form的简单使用/" class="leancloud_visitors" data-flag-title="Django form的简单使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.4k</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###Django From的简单使用</p>
+<p>举个简单的例子，用户登录需输入帐号和密码，即通过<code>POST</code>请求提交<code>form</code>表单</p>
+<p>在创建好的<code>app</code>文件目录下新建<code>forms.py</code>文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django <span class="keyword">import</span> forms</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LoginForm</span><span class="params">(Form.form)</span>:</span>    </span><br><span class="line">   	username = forms.CharField(label=<span class="string">'用户名'</span>, max_length=<span class="number">50</span>, required=<span class="keyword">False</span>)    		password = forms.CharField(label=<span class="string">'密码'</span>, max_length=<span class="number">50</span>, required=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<p>那么用户在前端提交的 <code>from</code> 表单如何传递到后台进行逻辑处理呢？有两种方法</p>
+<h3 id="使用django生成前端代码"><a href="#使用django生成前端代码" class="headerlink" title="使用django生成前端代码"></a>使用django生成前端代码</h3><p>在前端的登录代码中我们可以使用模板语言将 <code>forms.py</code> 中的代码转化为前端代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"form-horizontal form--flex"</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">action</span>=<span class="string">"/"</span>&gt;</span></span><br><span class="line">         &#123;% csrf_token %&#125;</span><br><span class="line">      	&#123;&#123; forms &#125;&#125;  //&#123;&#123; forms.as_p &#125;&#125;，具体书写参考django模板语言		</span><br><span class="line"> <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后用户提交的<code>form</code>表单数据就可以传递到后台了</p>
+<p>###自定义前端代码</p>
+<p>除了上面的方法，我们还可以自己写<code>form</code>表单代码，如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"form-horizontal form--flex"</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">action</span>=<span class="string">"/"</span>&gt;</span></span><br><span class="line">		&#123;% csrf_token %&#125;</span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"username"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">required</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"username"</span> <span class="attr">data-content</span>=<span class="string">"Username"</span>&gt;</span>Username<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"password"</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">required</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"password"</span> <span class="attr">data-content</span>=<span class="string">"Password"</span>&gt;</span>Password<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但是这里有个最重要的地方，那就是<code>input</code>中的 <code>name</code> 元素必须与 <code>django</code> 中 <code>form.py</code> 中定义的<code>form</code>类中的字段名一致，例如上面的 <code>form</code> 类中用户名和密码的字段名分别为 <code>username</code> 与 <code>password</code>，那么在前端自定义的<code>form</code>表单代码中应写成如下形式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">type</span>=<span class="string">""</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">type</span>=<span class="string">""</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其他元素可自定义添加</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/19/Hello-tornado/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -788,257 +974,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/18/celery在Django中的使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BlueMrD">
-      <meta itemprop="description" content="This is my blue sea.">
-      <meta itemprop="image" content="/images/Nicolas.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blue's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/18/celery在Django中的使用/" itemprop="url">
-                  celery在Django中的使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-18 21:55:37" itemprop="dateCreated datePublished" datetime="2018-10-18T21:55:37+08:00">2018-10-18</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-19 18:41:58" itemprop="dateModified" datetime="2018-10-19T18:41:58+08:00">2018-10-19</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/10/18/celery在Django中的使用/" class="leancloud_visitors" data-flag-title="celery在Django中的使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">2.5k</span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="celery在Django中的使用"><a href="#celery在Django中的使用" class="headerlink" title="celery在Django中的使用"></a>celery在Django中的使用</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install django</span><br><span class="line">pip install celery</span><br><span class="line">pip install redis</span><br></pre></td></tr></table></figure>
-<p>本文使用的消息队列是 <code>redis</code> ， 所以需要下载 <code>redis</code></p>
-<h3 id="启动redis"><a href="#启动redis" class="headerlink" title="启动redis"></a>启动redis</h3><p><code></code>cmd <code>进入</code>redis` 的根目录下，输入</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server.exe redis.windows.conf</span><br></pre></td></tr></table></figure>
-<p>如图所示，即启动成功</p>
-<img src="/2018/10/18/celery在Django中的使用/01.png" title="redis启动成功">
-<h3 id="celery配置"><a href="#celery配置" class="headerlink" title="celery配置"></a>celery配置</h3><p>创建一个<code>django</code> 项目与一个 <code>app</code> 应用，然后在其中新建一些 <code>py</code> 文件用来配置 <code>celery</code> ，基本形式如下</p>
-<img src="/2018/10/18/celery在Django中的使用/02.png" title="celery相关文件">
-<p>在 <code>settings.py</code> 文件目录下新建了一个 <code>celery.py</code> 文件</p>
-<p>在  <code>app</code> 目录下新建了一个 <code>tasks.py</code> 文件</p>
-<p>注意：这两个文件不可随意命名，必须为 <code>celery</code> 与 <code>tasks</code></p>
-<p><code>celery.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*-coding:utf-8-*-cd</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># celerydemo 为django项目名</span></span><br><span class="line">os.environ.setdefault(<span class="string">'DJANGO_SETTINGS_MODULE'</span>, <span class="string">'celerydemo.settings'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这里使用的是redis作消息队列，所以需进行设置</span></span><br><span class="line"><span class="comment"># 若 redis 未设置密码，写为broker="redis://localhost"</span></span><br><span class="line"><span class="comment"># 若 redis 已设置密码，则写为broker="redis://:password@localhost" (password为设置的密码)</span></span><br><span class="line">app = Celery(<span class="string">'celerydemo'</span>, backend=<span class="string">'redis'</span>, broker=<span class="string">"redis://:123456@localhost"</span>)</span><br><span class="line"></span><br><span class="line">app.config_from_object(<span class="string">'django.conf:settings'</span>, namespace=<span class="string">'CELERY'</span>)</span><br><span class="line"></span><br><span class="line">app.autodiscover_tasks()</span><br></pre></td></tr></table></figure>
-<p><code>tasks.py</code></p>
-<p>该文件下写异步任务，例如</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> shared_task</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">long_time_operation</span><span class="params">()</span>:</span></span><br><span class="line">    time.sleep(<span class="number">10</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Async Op!'</span></span><br></pre></td></tr></table></figure>
-<p><code>celerydemo/__init__.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .celery <span class="keyword">import</span> app <span class="keyword">as</span> celery_app</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">__all__ = [<span class="string">'celery_app'</span>]</span><br></pre></td></tr></table></figure>
-<p><code>views.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> .tasks <span class="keyword">import</span> long_time_operation</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 异步</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">async_op</span><span class="params">(request)</span>:</span></span><br><span class="line">    long_time_operation.delay()</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"Async Op!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 同步</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">block_op</span><span class="params">(request)</span>:</span></span><br><span class="line">    long_time_operation()</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"Finished!"</span>)</span><br></pre></td></tr></table></figure>
-<p><code>celerydemo/urls.py</code> </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path, include</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'admin/'</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">'celery/'</span>, include(<span class="string">'demo.urls'</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p><code>demo/urls.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> views</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app_name= <span class="string">'demo'</span></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'async/'</span>, views.async_op),</span><br><span class="line">    path(<span class="string">'block/'</span>, views.block_op),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h3 id="启动celery并运行项目"><a href="#启动celery并运行项目" class="headerlink" title="启动celery并运行项目"></a>启动celery并运行项目</h3><p>在命令行中输入</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery -A celerydemo worker -l info</span><br></pre></td></tr></table></figure>
-<p>若如图所示，则表示 <code>celery</code> 启动成功</p>
-<img src="/2018/10/18/celery在Django中的使用/03.png" title="celery配置">
-<p>然后另打开一个命令行，运行项目</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver</span><br></pre></td></tr></table></figure>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>在浏览器中输入 <code>127.0.0.1:8000/celery/block_op</code>，会加载 10s 才返回 <code>Finished!</code></p>
-<p>在浏览器中输入<code>127.0.0.1:8000:celery/async_op</code>，会立即返回 <code>Async Op!</code></p>
-<h3 id="报错与解决方法"><a href="#报错与解决方法" class="headerlink" title="报错与解决方法"></a>报错与解决方法</h3><p><code>windows</code>下对<code>celery</code>官方示例进行测试时会报错</p>
-<p><code>tasks.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> shared_task</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x+y</span><br></pre></td></tr></table></figure>
-<img src="/2018/10/18/celery在Django中的使用/04.png" title="测试">
-<p>报错为 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ValueError: not enough values to unpack (expected 3, got 0)</span><br></pre></td></tr></table></figure>
-<p>报错原因未知</p>
-<p>解决方法一：</p>
-<p>下载 <code>eventlet</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install evnetlet</span><br></pre></td></tr></table></figure>
-<p>然后在启动<code>celery</code>时，输入命令为</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery -A worker celerydemo -l info -P eventlet</span><br></pre></td></tr></table></figure>
-<p>再次进行测试即可</p>
-<p>解决方法二：</p>
-<p>无须下载任何库，只需在启动<code>celery</code>时，输入命令为</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery -A worker celerydemo --pool=solo -l info</span><br></pre></td></tr></table></figure>
-<p>即可</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-<div>
-  
-</div>
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1090,7 +1025,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

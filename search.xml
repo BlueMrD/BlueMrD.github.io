@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Django form的简单使用]]></title>
+    <url>%2F2018%2F11%2F08%2FDjango-form%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[###Django From的简单使用 举个简单的例子，用户登录需输入帐号和密码，即通过POST请求提交form表单 在创建好的app文件目录下新建forms.py文件 1234from django import formsclass LoginForm(Form.form): username = forms.CharField(label='用户名', max_length=50, required=False) password = forms.CharField(label='密码', max_length=50, required=False) 那么用户在前端提交的 from 表单如何传递到后台进行逻辑处理呢？有两种方法 使用django生成前端代码在前端的登录代码中我们可以使用模板语言将 forms.py 中的代码转化为前端代码 1234&lt;form class="form-horizontal form--flex" method="POST" action="/"&gt; &#123;% csrf_token %&#125; &#123;&#123; forms &#125;&#125; //&#123;&#123; forms.as_p &#125;&#125;，具体书写参考django模板语言 &lt;/form&gt; 然后用户提交的form表单数据就可以传递到后台了 ###自定义前端代码 除了上面的方法，我们还可以自己写form表单代码，如下 1234567&lt;form class="form-horizontal form--flex" method="POST" action="/"&gt; &#123;% csrf_token %&#125; &lt;input id="username" type="text" name="username" value="" required&gt; &lt;label for="username" data-content="Username"&gt;Username&lt;/label&gt; &lt;input id="password" type="password" name="password" required&gt; &lt;label for="password" data-content="Password"&gt;Password&lt;/label&gt;&lt;/form&gt; 但是这里有个最重要的地方，那就是input中的 name 元素必须与 django 中 form.py 中定义的form类中的字段名一致，例如上面的 form 类中用户名和密码的字段名分别为 username 与 password，那么在前端自定义的form表单代码中应写成如下形式 12&lt;input id="" type="" name="username" value=""&gt;&lt;input id="" type="" name="password"&gt; 其他元素可自定义添加]]></content>
+      <tags>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hello tornado]]></title>
     <url>%2F2018%2F10%2F19%2FHello-tornado%2F</url>
     <content type="text"><![CDATA[Hello tornado1pip install tornado 新建py文件tornado_code.py 1234567891011121314151617181920# -*-coding:utf-8-*-from tornado import web, ioloop, httpserverclass MainHanler(web.RequestHandler): def get(self): self.write('Hello, world')def make_app(): return web.Application([ (r'/', MainHanler), ])if __name__ == '__main__': app = make_app() app.listen(8080) ioloop.IOLoop.current().start() 运行tornado_code.py文件，在浏览器输入127.0.0.1:8080，将会返回 1Hello, world!]]></content>
